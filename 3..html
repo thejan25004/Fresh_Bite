@@ -1,0 +1,2619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Food Delivery - Premium Experience</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ff6b00',
+            secondary: '#4a6b8a',
+            'primary-dark': '#e85d00',
+            'dark-bg': '#1a1a1a',
+            'dark-card': '#2d2d2d',
+            'dark-text': '#e0e0e0'
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px'
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 2s infinite',
+            'float-slow': 'float 8s ease-in-out infinite',
+            'bounce-gentle': 'bounceGentle 3s ease-in-out infinite',
+            'fade-in-up': 'fadeInUp 0.8s ease-out',
+            'fade-in-left': 'fadeInLeft 0.8s ease-out',
+            'fade-in-right': 'fadeInRight 0.8s ease-out',
+            'scale-up': 'scaleUp 0.5s ease-out',
+            'shimmer': 'shimmer 2s linear infinite',
+            'pulse-glow': 'pulseGlow 2s ease-in-out infinite alternate'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+  <style>
+    :where([class^="ri-"])::before { content: "\f3c2"; }
+
+    * {
+      transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .dark body {
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+    }
+
+    .dark .bg-white {
+      background-color: #2d2d2d !important;
+    }
+
+    .dark .text-gray-800 {
+      color: #e0e0e0 !important;
+    }
+
+    .dark .text-gray-600 {
+      color: #b0b0b0 !important;
+    }
+
+    .dark .text-gray-500 {
+      color: #909090 !important;
+    }
+
+    .dark .bg-gray-50 {
+      background-color: #262626 !important;
+    }
+
+    .dark .bg-gray-100 {
+      background-color: #404040 !important;
+    }
+
+    .dark .border-gray-300 {
+      border-color: #555555 !important;
+    }
+
+    .dark .shadow-md {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      z-index: 1000;
+      background: linear-gradient(135deg, #ff6b00, #ff8533);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 15px 35px rgba(255, 107, 0, 0.4);
+    }
+
+    /* Custom Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @keyframes bounceGentle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes scaleUp {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200px 0; }
+      100% { background-position: calc(200px + 100%) 0; }
+    }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 20px rgba(255, 107, 0, 0.3); }
+      to { box-shadow: 0 0 40px rgba(255, 107, 0, 0.6); }
+    }
+
+    /*!* Hero Section with Curved Bottom *!*/
+    /*.hero-section {*/
+    /*  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(255,107,0,0.2) 100%),*/
+    /*  url('img/pexels-ella-olsson-572949-1640777.jpg');*/
+    /*!*url('img/pexels-ella-olsson-572949-1640777.jpg');*!*/
+    /*  background-size: cover;*/
+    /*  background-position: center;*/
+    /*  position: relative;*/
+    /*  min-height: 100vh;*/
+    /*  display: flex;*/
+    /*  align-items: center;*/
+    /*}*/
+
+    .hero-section {
+      background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(255,107,0,0.2) 100%);
+      /* Remove the background image properties */
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden; /* Add this to contain the video */
+    }
+
+    /* Add video background styles */
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1; /* Place video behind content */
+    }
+
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: white;
+      clip-path: ellipse(100% 100% at 50% 100%);
+    }
+
+    .dark .hero-section::after {
+      background: #1a1a1a;
+    }
+
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .floating-element:nth-child(1) { top: 10%; left: 5%; animation: float 6s ease-in-out infinite; }
+    .floating-element:nth-child(2) { top: 20%; right: 10%; animation: float-delayed 6s ease-in-out infinite; }
+    .floating-element:nth-child(3) { top: 60%; left: 8%; animation: float-slow 8s ease-in-out infinite; }
+    .floating-element:nth-child(4) { top: 70%; right: 5%; animation: float 7s ease-in-out infinite; }
+    .floating-element:nth-child(5) { top: 40%; right: 20%; animation: float-delayed 5s ease-in-out infinite; }
+
+    /* Food Splash Effects */
+    .splash-effect {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255,107,0,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse-glow 3s ease-in-out infinite alternate;
+    }
+
+    .splash-1 { top: 15%; left: 15%; animation-delay: 0s; }
+    .splash-2 { top: 50%; right: 20%; animation-delay: 1s; }
+    .splash-3 { bottom: 20%; left: 25%; animation-delay: 2s; }
+
+    /* Enhanced Card Hover Effects */
+    .product-card {
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+      z-index: 1;
+    }
+
+    .product-card:hover::before {
+      left: 100%;
+    }
+
+    .product-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .dark .product-card:hover {
+      box-shadow: 0 25px 50px -12px rgba(255, 107, 0, 0.3);
+    }
+
+    /* Category Cards with Advanced Effects */
+    .category-card {
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Feature Cards with Glow Effect */
+    .feature-card {
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px -8px rgba(255, 107, 0, 0.2);
+    }
+
+    .dark .feature-card:hover {
+      box-shadow: 0 20px 40px -8px rgba(255, 107, 0, 0.4);
+    }
+
+    /* Button Enhancements */
+    .btn-primary {
+      background: linear-gradient(135deg, #ff6b00, #ff8533);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 107, 0, 0.4);
+    }
+
+    /* Organic Shapes */
+    .organic-shape {
+      position: absolute;
+      background: linear-gradient(45deg, rgba(255,107,0,0.1), rgba(255,133,51,0.1));
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      animation: float-slow 10s ease-in-out infinite;
+    }
+
+    .organic-1 { width: 300px; height: 300px; top: 10%; left: -150px; }
+    .organic-2 { width: 400px; height: 400px; top: 50%; right: -200px; }
+    .organic-3 { width: 250px; height: 250px; bottom: 20%; left: 10%; }
+
+    /* Scroll Animations */
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Parallax Background */
+    .parallax-bg {
+      position: relative;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Leaf Elements */
+    .leaf {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(45deg, #22c55e, #16a34a);
+      border-radius: 0 100% 0 100%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .leaf:nth-child(odd) {
+      animation-delay: -2s;
+      transform: rotate(45deg);
+    }
+
+    .leaf:nth-child(even) {
+      animation-delay: -4s;
+      transform: rotate(-45deg);
+    }
+
+    /* Food Ingredient Particles */
+    .ingredient-particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: bounce-gentle 4s ease-in-out infinite;
+    }
+
+    .tomato { background: #ef4444; width: 20px; height: 20px; }
+    .herb { background: #22c55e; width: 15px; height: 15px; }
+    .spice { background: #f59e0b; width: 12px; height: 12px; }
+
+
+    /*-------------------------------------*/
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /*background: rgba(0, 0, 0, 0.8);*/
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      width: 98%;
+      height: 80%;
+      max-width: 2000px;
+      max-height: 110vh;
+      /*background: white;*/
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-overlay.active .modal-container {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .dark .modal-container {
+      background: #2d2d2d;
+      color: #e0e0e0;
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, #ff6b00, #ff8533);
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+
+    }
+
+    .modal-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="0%" r="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><ellipse cx="50" cy="0" rx="50" ry="20" fill="url(%23a)"/></svg>') repeat-x;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+
+      max-height: 60vh;
+      overflow-y: auto;
+
+      /* Hide scrollbar - Firefox */
+      scrollbar-width: none;
+
+      /* Hide scrollbar - WebKit (Chrome, Safari, Edge) */
+    }
+
+    .modal-body::-webkit-scrollbar {
+      display: none;
+    }
+
+
+    .modal-body::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #ff6b00, #ff8533);
+      border-radius: 4px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #e85d00, #ff6b00);
+    }
+
+    .category-item {
+      display: flex;
+      padding: 2rem;
+      /*border-bottom: 1px solid #e5e7eb;*/
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+
+
+      border-radius: 25px; /* 🎯 This creates the curve */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      /*transition: transform 0.3s ease;*/
+    }
+
+    .category-item:hover {
+      /*background: linear-gradient(90deg, rgba(255, 107, 0, 0.05), rgba(255, 133, 51, 0.05));*/
+      background: linear-gradient(
+        90deg,
+        rgba(255, 183, 77, 0.3),
+        rgba(255, 160, 67, 0.3)
+      );
+      transform: translateX(10px);
+    }
+
+    .dark .category-item {
+      border-bottom-color: #404040;
+    }
+
+    .dark .category-item:hover {
+      background: linear-gradient(90deg, rgba(255, 107, 0, 0.1), rgba(218, 74, 20, 0.1));
+    }
+
+    .category-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(135deg, #ff6b00, #ff8533);
+      transform: scaleY(0);
+      transition: transform 0.3s ease;
+    }
+
+    .category-item:hover::before {
+      transform: scaleY(1);
+    }
+
+    .item-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-right: 2rem;
+      position: relative;
+      flex-shrink: 0;
+
+    }
+
+    .item-image img {
+      width: 120%;
+      height: 120%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .category-item:hover .item-image img {
+      transform: scale(1.1);
+    }
+
+    .item-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .item-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+
+    .dark .item-title {
+      color: #e0e0e0;
+    }
+
+    .item-description {
+      color: #6b7280;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .dark .item-description {
+      color: #b0b0b0;
+    }
+
+    .item-price {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #ff6b00;
+      margin-bottom: 1rem;
+    }
+
+    .item-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .item-tag {
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .add-to-cart-btn {
+      background: linear-gradient(135deg, #ff6b00, #ff8533);
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      align-self: flex-start;
+    }
+
+    .add-to-cart-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .add-to-cart-btn:hover::before {
+      left: 100%;
+    }
+
+    .add-to-cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
+    }
+
+    /* Floating Background Emojis for Modal */
+    .modal-floating-emoji {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 1;
+      animation: modal-float 15s linear infinite;
+    }
+
+    @keyframes modal-float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.1;
+      }
+      90% {
+        opacity: 0.1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Staggered animation delays */
+    .modal-floating-emoji:nth-child(1) { animation-delay: 0s; left: 10%; }
+    .modal-floating-emoji:nth-child(2) { animation-delay: 2s; left: 20%; }
+    .modal-floating-emoji:nth-child(3) { animation-delay: 4s; left: 30%; }
+    .modal-floating-emoji:nth-child(4) { animation-delay: 6s; left: 40%; }
+    .modal-floating-emoji:nth-child(5) { animation-delay: 8s; left: 50%; }
+    .modal-floating-emoji:nth-child(6) { animation-delay: 10s; left: 60%; }
+    .modal-floating-emoji:nth-child(7) { animation-delay: 12s; left: 70%; }
+    .modal-floating-emoji:nth-child(8) { animation-delay: 14s; left: 80%; }
+
+    /* Item entrance animation */
+    .category-item {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .category-item:nth-child(1) { animation-delay: 0.1s; }
+    .category-item:nth-child(2) { animation-delay: 0.2s; }
+    .category-item:nth-child(3) { animation-delay: 0.3s; }
+    .category-item:nth-child(4) { animation-delay: 0.4s; }
+    .category-item:nth-child(5) { animation-delay: 0.5s; }
+    .category-item:nth-child(6) { animation-delay: 0.6s; }
+    .category-item:nth-child(7) { animation-delay: 0.7s; }
+    .category-item:nth-child(8) { animation-delay: 0.8s; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .modal-container {
+        width: 98%;
+        max-height: 95vh;
+      }
+
+      .category-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      .item-image {
+        width: 100%;
+        height: 200px;
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .modal-header {
+        padding: 1.5rem;
+      }
+    }
+
+
+    .cta-video {
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Enhanced text visibility over video */
+    .drop-shadow-lg {
+      filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    }
+
+    .drop-shadow-md {
+      filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    }
+
+    /* Backdrop blur for better button visibility */
+    .backdrop-blur-sm {
+      backdrop-filter: blur(4px);
+    }
+
+
+    .value-card:hover {
+      transform: scale(1.05) rotate(1deg);
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .mission-card:hover, .vision-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .award-card:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Counter Animation */
+    .counter {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Custom hover effects */
+    .team-card img {
+      transition: transform 0.5s ease;
+    }
+
+    .team-card:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Floating animation for awards */
+    .award-card {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .award-card:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .award-card:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    .award-card:nth-child(4) {
+      animation-delay: 3s;
+    }
+
+    /* Gradient text animation */
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .animate-gradient {
+      background-size: 200% 200%;
+      animation: gradient-shift 3s ease infinite;
+    }
+  </style>
+</head>
+<body class="bg-white transition-colors duration-300">
+<!-- Theme Toggle Button -->
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <i class="ri-sun-line" id="theme-icon"></i>
+</button>
+
+<!-- Floating Background Elements -->
+<div class="fixed inset-0 pointer-events-none z-0">
+  <!-- Organic Shapes -->
+  <div class="organic-shape organic-1"></div>
+  <div class="organic-shape organic-2"></div>
+  <div class="organic-shape organic-3"></div>
+
+  <!-- Leaves -->
+  <div class="leaf" style="top: 10%; left: 5%;"></div>
+  <div class="leaf" style="top: 20%; right: 15%;"></div>
+  <div class="leaf" style="top: 60%; left: 10%;"></div>
+  <div class="leaf" style="bottom: 30%; right: 8%;"></div>
+
+  <!-- Food Particles -->
+  <div class="ingredient-particle tomato" style="top: 25%; left: 20%; animation-delay: 1s;"></div>
+  <div class="ingredient-particle herb" style="top: 45%; right: 25%; animation-delay: 2s;"></div>
+  <div class="ingredient-particle spice" style="bottom: 40%; left: 15%; animation-delay: 0.5s;"></div>
+  <div class="ingredient-particle tomato" style="top: 70%; right: 30%; animation-delay: 3s;"></div>
+  <div class="ingredient-particle herb" style="top: 15%; left: 70%; animation-delay: 1.5s;"></div>
+</div>
+
+<!-- Header -->
+<header class="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 transition-all duration-300">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="#" class="text-3xl font-['Pacifico'] text-primary animate-pulse-glow">FreshBite</a>
+    <nav class="hidden md:flex items-center space-x-8">
+      <a href="#" class="text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:scale-105">Home</a>
+      <a href="#featureProducts" class="text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:scale-105">Menu</a>
+      <a href="#about" class="text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:scale-105">About</a>
+      <a href="#contacts" class="text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:scale-105">Contact</a>
+    </nav>
+    <div class="flex items-center space-x-4">
+      <a href="#" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-all duration-300 hover:scale-110">
+        <i class="ri-search-line ri-lg"></i>
+      </a>
+      <a href="#" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-all duration-300 hover:scale-110">
+        <i class="ri-user-line ri-lg"></i>
+      </a>
+      <a href="#" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary relative transition-all duration-300 hover:scale-110">
+        <i class="ri-shopping-cart-line ri-lg"></i>
+        <span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full animate-bounce-gentle">3</span>
+      </a>
+      <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+        <i class="ri-menu-line ri-lg"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!--&lt;!&ndash; Hero Section &ndash;&gt;-->
+<!--<section class="hero-section relative">-->
+<!--  &lt;!&ndash; Splash Effects &ndash;&gt;-->
+<!--  <div class="splash-effect splash-1"></div>-->
+<!--  <div class="splash-effect splash-2"></div>-->
+<!--  <div class="splash-effect splash-3"></div>-->
+
+<!--  &lt;!&ndash; Floating Elements &ndash;&gt;-->
+<!--  <div class="floating-element">🍃</div>-->
+<!--  <div class="floating-element">🌿</div>-->
+<!--  <div class="floating-element">🍅</div>-->
+<!--  <div class="floating-element">🌶️</div>-->
+<!--  <div class="floating-element">🥕</div>-->
+
+<!--  <div class="container mx-auto px-4 py-24 relative z-10">-->
+<!--    <div class="max-w-2xl animate-fade-in-left">-->
+<!--      <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">-->
+<!--        DELIVERY OF-->
+<!--        <span class="text-primary animate-pulse-glow">FRESH HOT</span>-->
+<!--        DISHES-->
+<!--      </h1>-->
+<!--      <p class="text-xl md:text-2xl text-white mb-8 opacity-90">Enjoy restaurant-quality meals delivered to your doorstep with premium ingredients and chef's expertise</p>-->
+<!--      <div class="flex flex-col sm:flex-row gap-4">-->
+<!--        <a href="#" class="btn-primary inline-block bg-primary text-white px-10 py-4 font-semibold rounded-button text-lg hover:scale-105 transition-all duration-300">-->
+<!--          Order Now-->
+<!--          <i class="ri-arrow-right-line ml-2"></i>-->
+<!--        </a>-->
+<!--        <a href="#" class="inline-block bg-white/20 backdrop-blur-sm text-white px-10 py-4 font-semibold rounded-button text-lg hover:bg-white/30 transition-all duration-300">-->
+<!--          View Menu-->
+<!--          <i class="ri-restaurant-line ml-2"></i>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<!-- Hero Section -->
+<section class="hero-section relative">
+  <!-- Background Video -->
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="videos/Restaurant%20Promo%20Video%20⧸%20Historia%20Meze%20Grill%20⧸%20High%20Wycombe.mp4" type="video/mp4">
+    <source src="videos/Restaurant%20Promo%20Video%20⧸%20Historia%20Meze%20Grill%20⧸%20High%20Wycombe.mp4" type="video/webm">
+    <!-- Fallback for browsers that don't support video -->
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Splash Effects -->
+  <div class="splash-effect splash-1"></div>
+  <div class="splash-effect splash-2"></div>
+  <div class="splash-effect splash-3"></div>
+
+  <!-- Floating Elements -->
+  <div class="floating-element">🍃</div>
+  <div class="floating-element">🌿</div>
+  <div class="floating-element">🍅</div>
+  <div class="floating-element">🌶️</div>
+  <div class="floating-element">🥕</div>
+
+  <div class="container mx-auto px-4 py-24 relative z-10">
+    <div class="max-w-2xl animate-fade-in-left">
+      <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+        DELIVERY OF
+        <span class="text-primary animate-pulse-glow">FRESH HOT</span>
+        DISHES
+      </h1>
+      <p class="text-xl md:text-2xl text-white mb-8 opacity-90">Enjoy restaurant-quality meals delivered to your doorstep with premium ingredients and chef's expertise</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#featureProducts" class="btn-primary inline-block bg-primary text-white px-10 py-4 font-semibold rounded-button text-lg hover:scale-105 transition-all duration-300">
+          Order Now
+          <i class="ri-arrow-right-line ml-2"></i>
+        </a>
+        <a href="#categories" class="inline-block bg-white/20 backdrop-blur-sm text-white px-10 py-4 font-semibold rounded-button text-lg hover:bg-white/30 transition-all duration-300">
+          View Menu
+          <i class="ri-restaurant-line ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- About Section -->
+<section id="about" class="py-20 bg-white relative overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="organic-shape organic-1"></div>
+    <div class="organic-shape organic-2"></div>
+    <div class="ingredient-particle tomato" style="top: 15%; left: 8%; animation-delay: 0s;"></div>
+    <div class="ingredient-particle herb" style="top: 25%; right: 12%; animation-delay: 1s;"></div>
+    <div class="ingredient-particle spice" style="top: 70%; left: 10%; animation-delay: 2s;"></div>
+    <div class="leaf" style="top: 40%; right: 5%; animation-delay: 1.5s;"></div>
+    <div class="leaf" style="bottom: 30%; left: 5%; animation-delay: 0.5s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <!-- Hero About Header -->
+    <div class="mb-16 text-center scroll-fade">
+<!--      <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent animate-pulse-glow">-->
+<!--        About FreshBite-->
+<!--      </h1>-->
+      <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Where culinary passion meets innovation to bring you the finest dining experience
+      </p>
+      <div class="w-32 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto mt-8 rounded-full"></div>
+    </div>
+
+    <!-- Story Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+      <div class="scroll-fade">
+        <div class="relative">
+          <img src="img/resturant/modern-coffee-shop-with-comfortable-chairs-elegant-decor-relaxing-ambiance-generated-by-artificial-intelligence.jpg"
+               alt="Our Kitchen"
+               class="w-full h-96 object-cover rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl"></div>
+          <div class="absolute bottom-6 left-6 text-white">
+            <div class="bg-primary px-4 py-2 rounded-full text-sm font-semibold animate-bounce-gentle">
+              🔥 Fresh Daily
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-center scroll-fade">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Our Story</h2>
+        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+          Founded in 2020 with a simple mission: to bring restaurant-quality meals directly to your doorstep.
+          What started as a small family kitchen has grown into a beloved culinary destination that serves thousands
+          of satisfied customers daily.
+        </p>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          Every dish tells a story of passion, quality, and dedication. Our chefs combine traditional cooking techniques
+          with modern innovation to create unforgettable flavors that keep you coming back for more.
+        </p>
+        <div class="flex items-center space-x-6">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary counter" data-count="10000">0</div>
+            <div class="text-sm text-gray-600 font-medium">Happy Customers</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary counter" data-count="500">0</div>
+            <div class="text-sm text-gray-600 font-medium">Daily Orders</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary counter" data-count="4">0</div>
+            <div class="text-sm text-gray-600 font-medium">Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Values Section -->
+    <div class="mb-20 scroll-fade">
+<!--      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">Our Values</h2>-->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Value 1 -->
+        <div class="value-card bg-gradient-to-br from-red-50 to-red-100 rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+            <span class="text-3xl">❤️</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Passion</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Every dish is crafted with love and dedication. Our passion for food drives us to exceed expectations in every bite.
+          </p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="value-card bg-gradient-to-br from-green-50 to-green-100 rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+            <span class="text-3xl">🌱</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Quality</h3>
+          <p class="text-gray-600 leading-relaxed">
+            We source only the finest, freshest ingredients from trusted local suppliers to ensure premium quality in every meal.
+          </p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="value-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+            <span class="text-3xl">⚡</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Innovation</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Constantly evolving our menu and delivery process with cutting-edge technology to enhance your experience.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="mb-20 scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">Meet Our Team</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Team Member 1 -->
+        <div class="team-card bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="relative">
+            <img src="img/cheffs/shutterstock_1092064076.jpg"
+                 alt="Head Chef"
+                 class="w-full h-80 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <div class="bg-primary px-3 py-1 rounded-full text-sm font-semibold">
+                Head Chef
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-800">Chef Marco Rodriguez</h3>
+            <p class="text-gray-600 mb-4">15+ years of culinary excellence</p>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Michelin-trained chef specializing in fusion cuisine and innovative flavor combinations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-card bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="relative">
+            <img src="img/cheffs/happy-young-chef-posing-uniform_884296-444.jpg"
+                 alt="Sous Chef"
+                 class="w-full h-80 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <div class="bg-green-500 px-3 py-1 rounded-full text-sm font-semibold">
+                Sous Chef
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-800">Chef Sarah Kim</h3>
+            <p class="text-gray-600 mb-4">Pastry & Dessert Specialist</p>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Award-winning pastry chef known for creating Instagram-worthy desserts that taste as good as they look.
+            </p>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-card bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="relative">
+            <img src="img/cheffs/istockphoto-841494354-612x612.jpg"
+                 alt="Junior Chef"
+                 class="w-full h-80 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <div class="bg-purple-500 px-3 py-1 rounded-full text-sm font-semibold">
+                Operations
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-800">David Chen</h3>
+            <p class="text-gray-600 mb-4">Operations Manager</p>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Ensures every order meets our quality standards and reaches customers at the perfect time and temperature.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+      <!-- Mission -->
+      <div class="mission-card bg-gradient-to-br from-primary/10 to-orange-100 rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-primary to-orange-500 rounded-full flex items-center justify-center mb-6 animate-bounce-gentle">
+          <span class="text-2xl">🎯</span>
+        </div>
+        <h3 class="text-3xl font-bold mb-6 text-gray-800">Our Mission</h3>
+        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+          To revolutionize food delivery by providing exceptional culinary experiences that bring families together,
+          one meal at a time. We believe great food has the power to create lasting memories and strengthen bonds.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-center text-gray-600">
+            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+            Premium quality ingredients
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+            Lightning-fast delivery
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+            Exceptional customer service
+          </li>
+        </ul>
+      </div>
+
+      <!-- Vision -->
+      <div class="vision-card bg-gradient-to-br from-blue-50 to-purple-100 rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mb-6 animate-bounce-gentle">
+          <span class="text-2xl">🚀</span>
+        </div>
+        <h3 class="text-3xl font-bold mb-6 text-gray-800">Our Vision</h3>
+        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+          To become the world's most beloved food delivery service, setting new standards for quality,
+          sustainability, and customer satisfaction while supporting local communities and suppliers.
+        </p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="text-center p-4 bg-white/50 rounded-2xl">
+            <div class="text-2xl font-bold text-blue-500">100+</div>
+            <div class="text-sm text-gray-600">Cities</div>
+          </div>
+          <div class="text-center p-4 bg-white/50 rounded-2xl">
+            <div class="text-2xl font-bold text-purple-500">24/7</div>
+            <div class="text-sm text-gray-600">Service</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Awards & Recognition -->
+    <div class="text-center scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-12 text-gray-800">Awards & Recognition</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="award-card p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">🏆</div>
+          <div class="text-sm font-semibold text-gray-800">Best Food Delivery</div>
+          <div class="text-xs text-gray-600">2023</div>
+        </div>
+        <div class="award-card p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">⭐</div>
+          <div class="text-sm font-semibold text-gray-800">Customer Choice</div>
+          <div class="text-xs text-gray-600">2023</div>
+        </div>
+        <div class="award-card p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">🌟</div>
+          <div class="text-sm font-semibold text-gray-800">Quality Excellence</div>
+          <div class="text-xs text-gray-600">2022</div>
+        </div>
+        <div class="award-card p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">🎖️</div>
+          <div class="text-sm font-semibold text-gray-800">Innovation Award</div>
+          <div class="text-xs text-gray-600">2022</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Featured Products -->
+<section id="featureProducts" class="py-20 bg-gray-50 relative overflow-hidden">
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="mb-16 text-center scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Featured Items</h2>
+      <p class="text-xl text-gray-600">Our most popular and loved dishes crafted with passion</p>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Featured Product 1 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="https://readdy.ai/api/search-image?query=Refreshing%20cocktail%20with%20fresh%20mint%2C%20strawberries%2C%20and%20ice%20in%20a%20tall%20glass%2C%20vibrant%20colors%2C%20clear%20liquid%20with%20red%20berries%2C%20professional%20beverage%20photography%20with%20condensation%20on%20glass%2C%20clean%20background&width=600&height=400&seq=2&orientation=landscape" alt="Cocktail" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Hot 🔥
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Berry Mojito</h3>
+            <span class="text-primary font-bold text-xl">$12.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">Refreshing cocktail with fresh berries, mint, and lime juice crafted by our mixology experts</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-green-100 text-green-700 text-sm rounded-full font-medium">Fresh</span>
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 text-sm rounded-full font-medium">Signature</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Featured Product 2 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="https://readdy.ai/api/search-image?query=Colorful%20fresh%20fruit%20cocktail%20with%20mixed%20berries%2C%20citrus%20slices%2C%20and%20mint%20garnish%20in%20elegant%20glassware%2C%20professional%20beverage%20photography%20with%20clean%20background%2C%20vibrant%20colors%2C%20refreshing%20summer%20drink&width=600&height=400&seq=3&orientation=landscape" alt="Fruit Cocktail" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Healthy 🌿
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Tropical Paradise</h3>
+            <span class="text-primary font-bold text-xl">$14.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">Exotic blend of tropical fruits with a hint of coconut and natural sweeteners</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">Non-alcoholic</span>
+            <span class="px-4 py-2 bg-purple-100 text-purple-700 text-sm rounded-full font-medium">Bestseller</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Featured Product 3 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="https://readdy.ai/api/search-image?query=Gourmet%20seafood%20pasta%20with%20shrimp%2C%20mussels%2C%20and%20fresh%20herbs%20in%20a%20creamy%20sauce%2C%20served%20in%20an%20elegant%20white%20bowl%2C%20professional%20food%20photography%20with%20soft%20natural%20lighting%2C%20restaurant%20quality%20presentation&width=600&height=400&seq=4&orientation=landscape" alt="Seafood Pasta" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Chef's Choice 👨‍🍳
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Seafood Delight</h3>
+            <span class="text-primary font-bold text-xl">$24.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">Premium seafood pasta with shrimp, mussels, and fresh herbs in our signature sauce</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-red-100 text-red-700 text-sm rounded-full font-medium">Chef's Special</span>
+            <span class="px-4 py-2 bg-yellow-100 text-yellow-700 text-sm rounded-full font-medium">Premium</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Featured Product 4 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="img/featureItems/italian-pasta-cooked-recipe-arrabiata_917664-105900.jpg" alt="Cocktail" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Hot 🔥
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Italian Pasta</h3>
+            <span class="text-primary font-bold text-xl">$14.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">A classic Italian dish made with durum wheat noodles, typically served with a variety of sauces like tomato, pesto, or creamy Alfredo, and often garnished with herbs and cheese.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-green-100 text-green-700 text-sm rounded-full font-medium">Fresh</span>
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 text-sm rounded-full font-medium">Signature</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Featured Product 5 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="img/featureItems/thumb-1920-1324465.png" alt="Cocktail" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Hot 🔥
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">lasagna ricotta cheese</h3>
+            <span class="text-primary font-bold text-xl">$52.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">A layered oven-baked pasta dish featuring sheets of pasta, rich tomato sauce, seasoned ground meat, and creamy ricotta cheese, topped with melted mozzarella.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-green-100 text-green-700 text-sm rounded-full font-medium">Fresh</span>
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 text-sm rounded-full font-medium">Signature</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Featured Product 6 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="img/featureItems/red-lobster-seafood-fresh_988987-2687.png" alt="Cocktail" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Hot 🔥
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Sea Food With  Crayfish</h3>
+            <span class="text-primary font-bold text-xl">$102.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">A savory seafood medley starring crayfish, often combined with shrimp, mussels, or squid, cooked in a flavorful garlic butter or tomato-based sauce.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-green-100 text-green-700 text-sm rounded-full font-medium">Fresh</span>
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 text-sm rounded-full font-medium">Signature</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Hot Dishes Section with Parallax -->
+<section class="py-20 parallax-bg relative" style="background-image: url('https://readdy.ai/api/search-image?query=Dark%20rustic%20wooden%20background%20with%20cooking%20ingredients%20and%20herbs%20scattered%20around%2C%20professional%20food%20photography%20background%2C%20warm%20lighting%2C%20culinary%20scene&width=1920&height=800&seq=13&orientation=landscape');">
+  <div class="absolute inset-0 bg-black/70"></div>
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="mb-16 text-center text-white scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Hot Dishes</h2>
+      <p class="text-xl opacity-90">Freshly prepared and delivered piping hot to your door</p>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Hot Dish 1 -->
+      <div class="product-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row scroll-fade">
+        <div class="md:w-1/2 h-64 md:h-auto overflow-hidden relative">
+          <img src="img/hotDishes/Grilled-Chicken-Leg-Quarters-FI-1.jpg" alt="Grilled Chicken" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-bounce-gentle">
+            🔥 Hot
+          </div>
+        </div>
+        <div class="md:w-1/2 p-8">
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Grilled Chicken Supreme</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">Perfectly grilled chicken breast with seasonal roasted vegetables and our signature herb blend</p>
+          <div class="flex justify-between items-center mb-6">
+            <span class="text-3xl font-bold text-primary">$18.99</span>
+            <div class="flex items-center space-x-1">
+              <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              <span class="text-sm text-gray-500">(4.8)</span>
+            </div>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Order Now - 25 min
+          </button>
+        </div>
+      </div>
+
+      <!-- Hot Dish 2 -->
+      <div class="product-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row-reverse scroll-fade">
+        <div class="md:w-1/2 h-64 md:h-auto overflow-hidden relative">
+          <img src="img/hotDishes/ai-generated-8944735.jpg" alt="Beef Steak" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
+            👑 Premium
+          </div>
+        </div>
+        <div class="md:w-1/2 p-8">
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Prime Beef Steak</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">Premium cut beef steak cooked to perfection with grilled asparagus and creamy mashed potatoes</p>
+          <br>
+          <div class="flex justify-between items-center mb-6">
+            <span class="text-3xl font-bold text-primary">$32.99</span>
+            <div class="flex items-center space-x-1">
+              <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              <span class="text-sm text-gray-500">(4.9)</span>
+            </div>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Order Now - 30 min
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Add this Modal HTML after your Categories Section -->
+<div id="categoryModal" class="modal-overlay">
+  <!-- Floating Emojis Background -->
+  <div class="modal-floating-emoji">🍃</div>
+  <div class="modal-floating-emoji">🌿</div>
+  <div class="modal-floating-emoji">🍅</div>
+  <div class="modal-floating-emoji">🌶️</div>
+  <div class="modal-floating-emoji">🥕</div>
+  <div class="modal-floating-emoji">🥬</div>
+  <div class="modal-floating-emoji">🍋</div>
+  <div class="modal-floating-emoji">🥑</div>
+
+  <div class="modal-container">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeCategoryModal()">
+        <i class="ri-close-line"></i>
+      </button>
+      <h2 id="modalTitle" class="text-3xl font-bold text-white">Main Courses</h2>
+      <p id="modalSubtitle" class="text-white/90 mt-2">Hearty and satisfying main dishes</p>
+    </div>
+
+    <div class="modal-body" id="modalBody">
+      <!-- Items will be populated here -->
+    </div>
+  </div>
+</div>
+
+<!-- Update your existing category cards to include onclick handlers -->
+<!-- Replace your existing Categories Section with this updated version -->
+<section id="categories" class="py-20 bg-white relative overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="ingredient-particle tomato" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+    <div class="ingredient-particle herb" style="top: 20%; right: 10%; animation-delay: 1s;"></div>
+    <div class="ingredient-particle spice" style="top: 70%; left: 15%; animation-delay: 2s;"></div>
+    <div class="ingredient-particle tomato" style="bottom: 20%; right: 20%; animation-delay: 1.5s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="mb-16 text-center scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Categories</h2>
+      <p class="text-xl text-gray-600">Explore our diverse menu crafted with love</p>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Category 1 -->
+      <div class="category-card bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 scroll-fade cursor-pointer" onclick="openCategoryModal('main-courses')">
+        <div class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce-gentle">
+          <span class="text-3xl">🍖</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Main Courses</h3>
+        <p class="text-gray-600 mb-6">Hearty and satisfying main dishes</p>
+        <span class="text-sm text-red-600 font-semibold">8+ items</span>
+      </div>
+
+      <!-- Category 2 -->
+      <div class="category-card bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 scroll-fade cursor-pointer" onclick="openCategoryModal('fresh-salads')">
+        <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce-gentle">
+          <span class="text-3xl">🥗</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Fresh Salads</h3>
+        <p class="text-gray-600 mb-6">Crisp and healthy salad options</p>
+        <span class="text-sm text-green-600 font-semibold">8+ items</span>
+      </div>
+
+      <!-- Category 3 -->
+      <div class="category-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 scroll-fade cursor-pointer" onclick="openCategoryModal('beverages')">
+        <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce-gentle">
+          <span class="text-3xl">🍹</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Beverages</h3>
+        <p class="text-gray-600 mb-6">Refreshing drinks and cocktails</p>
+        <span class="text-sm text-blue-600 font-semibold">8+ items</span>
+      </div>
+
+      <!-- Category 4 -->
+      <div class="category-card bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 scroll-fade cursor-pointer" onclick="openCategoryModal('desserts')">
+        <div class="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce-gentle">
+          <span class="text-3xl">🍰</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Desserts</h3>
+        <p class="text-gray-600 mb-6">Sweet treats to end your meal</p>
+        <span class="text-sm text-purple-600 font-semibold">8+ items</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-20 bg-gray-50 relative overflow-hidden">
+  <!-- Floating Food Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="leaf" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+    <div class="leaf" style="top: 30%; right: 15%; animation-delay: 2s;"></div>
+    <div class="leaf" style="bottom: 25%; left: 20%; animation-delay: 1s;"></div>
+    <div class="leaf" style="bottom: 40%; right: 10%; animation-delay: 3s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="mb-16 text-center scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Choose FreshBite?</h2>
+      <p class="text-xl text-gray-600">Experience the difference in every bite</p>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Feature 1 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-primary to-orange-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">⚡</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Lightning Fast</h3>
+        <p class="text-gray-600 leading-relaxed">Average delivery time of 25 minutes with real-time tracking</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">🌱</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Fresh Ingredients</h3>
+        <p class="text-gray-600 leading-relaxed">Sourced daily from local farms and premium suppliers</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">👨‍🍳</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Expert Chefs</h3>
+        <p class="text-gray-600 leading-relaxed">Prepared by professional chefs with years of experience</p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">🛡️</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Safe & Hygienic</h3>
+        <p class="text-gray-600 leading-relaxed">Highest food safety standards with contactless delivery</p>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">💝</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Special Offers</h3>
+        <p class="text-gray-600 leading-relaxed">Daily deals and loyalty rewards for our valued customers</p>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">⭐</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">5-Star Service</h3>
+        <p class="text-gray-600 leading-relaxed">Exceptional customer service with 24/7 support</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20 bg-gradient-to-br from-primary/10 to-orange-100 relative overflow-hidden">
+  <!-- Floating Food Splash Effects -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="splash-effect" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="splash-effect" style="bottom: 30%; right: 15%; animation-delay: 2s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="mb-16 text-center scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">What Our Customers Say</h2>
+      <p class="text-xl text-gray-600">Real reviews from real food lovers</p>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Testimonial 1 -->
+      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 scroll-fade">
+        <div class="flex items-center mb-6">
+          <img src="img/testomonial/stylish-buisnessman-suit-tie-holding-his-hands-lock-leadership_396607-56424.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <h4 class="font-bold">Sarah Johnson</h4>
+            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="text-gray-600 leading-relaxed">"Absolutely amazing! The food arrived hot and fresh, and the flavors were incredible. Best delivery service in town!"</p>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 scroll-fade">
+        <div class="flex items-center mb-6">
+          <img src="img/testomonial/official-man-potrait_758367-17391.png" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <h4 class="font-bold">Mike Chen</h4>
+            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="text-gray-600 leading-relaxed">"The seafood pasta was restaurant quality! Quick delivery and excellent customer service. Highly recommended!"</p>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 scroll-fade">
+        <div class="flex items-center mb-6">
+          <img src="img/testomonial/girl-8734307_640.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <h4 class="font-bold">Emma Davis</h4>
+            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="text-gray-600 leading-relaxed">"Love the healthy options and fresh ingredients. The app is easy to use and delivery is always on time!"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section id="contacts" class="py-20 relative overflow-hidden">
+  <!-- Video Background -->
+  <video
+    class="cta-video absolute top-0 left-0 w-full h-full object-cover z-0"
+    autoplay
+    muted
+    loop
+    playsinline>
+    <source src="videos/0601.mp4" type="video/mp4">
+    <source src="videos/0601.mp4" type="video/mp4">
+    <!-- Fallback for browsers that don't support video -->
+    <div class="w-full h-full bg-gradient-to-r from-primary to-orange-500"></div>
+  </video>
+
+  <!-- Video Overlay -->
+  <div class="absolute inset-0 bg-black/50 z-1"></div>
+
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 pointer-events-none z-2">
+    <div class="floating-element" style="top: 20%; left: 10%; font-size: 3rem;">🍽️</div>
+    <div class="floating-element" style="top: 60%; right: 15%; font-size: 2.5rem;">🥘</div>
+    <div class="floating-element" style="bottom: 30%; left: 20%; font-size: 2rem;">🍷</div>
+  </div>
+
+  <div class="container mx-auto px-4 text-center relative z-10">
+    <div class="max-w-3xl mx-auto scroll-fade">
+      <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">Ready to Order?</h2>
+      <p class="text-xl md:text-2xl text-white/90 mb-10 drop-shadow-md">Join thousands of satisfied customers and experience the FreshBite difference today!</p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="#" class="inline-block bg-white text-primary px-10 py-4 font-bold rounded-button text-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-2xl">
+          Download App
+          <i class="ri-smartphone-line ml-2"></i>
+        </a>
+        <a href="#" class="inline-block bg-transparent border-2 border-white text-white px-10 py-4 font-bold rounded-button text-lg hover:bg-white hover:text-primary hover:scale-105 transition-all duration-300 backdrop-blur-sm">
+          Order Online
+          <i class="ri-external-link-line ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-16 relative overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 pointer-events-none opacity-20">
+    <div class="ingredient-particle tomato" style="top: 20%; left: 5%;"></div>
+    <div class="ingredient-particle herb" style="top: 60%; right: 10%;"></div>
+    <div class="ingredient-particle spice" style="bottom: 30%; left: 15%;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Company Info -->
+      <div class="scroll-fade">
+        <a href="#" class="text-3xl font-['Pacifico'] text-primary mb-6 block">FreshBite</a>
+        <p class="text-gray-300 mb-6 leading-relaxed">Delivering fresh, delicious meals to your doorstep with love and care. Experience premium quality food service.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300">
+            <i class="ri-facebook-fill"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300">
+            <i class="ri-instagram-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="scroll-fade">
+        <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Home</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Menu</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">About Us</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Contact</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="scroll-fade">
+        <h3 class="text-xl font-bold mb-6">Categories</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Main Courses</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Appetizers</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Beverages</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Desserts</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Healthy Options</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="scroll-fade">
+        <h3 class="text-xl font-bold mb-6">Contact Us</h3>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <i class="ri-phone-line mr-3 text-primary"></i>
+            <span class="text-gray-300">+94 750 873 042</span>
+          </div>
+          <div class="flex items-center">
+            <i class="ri-mail-line mr-3 text-primary"></i>
+            <span class="text-gray-300">Cpes@freshbite.com</span>
+          </div>
+          <div class="flex items-center">
+            <i class="ri-map-pin-line mr-3 text-primary"></i>
+            <span class="text-gray-300">123 Food Street, Moratuwa Lane 01</span>
+          </div>
+          <div class="flex items-center">
+            <i class="ri-time-line mr-3 text-primary"></i>
+            <span class="text-gray-300">24/7 Delivery Service</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+      <p class="text-gray-400">&copy; 2024 FreshBite. All rights reserved. Made with ❤️ for food lovers.</p>
+    </div>
+  </div>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Counter Animation
+    const counters = document.querySelectorAll('.counter');
+
+    const animateCounter = (counter) => {
+      const target = parseInt(counter.getAttribute('data-count'));
+      const increment = target / 100;
+      let current = 0;
+
+      const updateCounter = () => {
+        if (current < target) {
+          current += increment;
+          counter.textContent = Math.ceil(current).toLocaleString();
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target.toLocaleString();
+        }
+      };
+
+      updateCounter();
+    };
+
+    // Intersection Observer for counters
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          animateCounter(counter);
+          counterObserver.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+      counterObserver.observe(counter);
+    });
+
+    // Add stagger animation to team cards
+    const teamCards = document.querySelectorAll('.team-card');
+    teamCards.forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.2}s`;
+    });
+
+    // Add hover sound effect (optional)
+    const hoverCards = document.querySelectorAll('.value-card, .team-card, .award-card');
+    hoverCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      });
+    });
+  });
+</script>
+<script>
+
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   // Counter Animation
+  //   const counters = document.querySelectorAll('.counter');
+  //
+  //   const animateCounter = (counter) => {
+  //     const target = parseInt(counter.getAttribute('data-count'));
+  //     const increment = target / 100;
+  //     let current = 0;
+  //
+  //     const updateCounter = () => {
+  //       if (current < target) {
+  //         current += increment;
+  //         counter.textContent = Math.ceil(current).toLocaleString();
+  //         requestAnimationFrame(updateCounter);
+  //       } else {
+  //         counter.textContent = target.toLocaleString();
+  //       }
+  //     };
+  //
+  //     updateCounter();
+  //   };
+  //
+  //   // Intersection Observer for counters
+  //   const counterObserver = new IntersectionObserver((entries) => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         const counter = entry.target;
+  //         animateCounter(counter);
+  //         counterObserver.unobserve(counter);
+  //       }
+  //     });
+  //   }, { threshold: 0.5 });
+  //
+  //   counters.forEach(counter => {
+  //     counterObserver.observe(counter);
+  //   });
+  //
+  //   // Parallax effect for cards
+  //   window.addEventListener('scroll', () => {
+  //     const scrolled = window.pageYOffset;
+  //     const cards = document.querySelectorAll('.value-card, .team-card');
+  //
+  //     cards.forEach((card, index) => {
+  //       const speed = 0.5 + (index * 0.1);
+  //       const yPos = -(scrolled * speed);
+  //       card.style.transform = `translateY(${yPos}px)`;
+  //     });
+  //   });
+  //
+  //   // Add stagger animation to team cards
+  //   const teamCards = document.querySelectorAll('.team-card');
+  //   teamCards.forEach((card, index) => {
+  //     card.style.animationDelay = `${index * 0.2}s`;
+  //   });
+  //
+  //   // Add hover sound effect (optional)
+  //   const hoverCards = document.querySelectorAll('.value-card, .team-card, .award-card');
+  //   hoverCards.forEach(card => {
+  //     card.addEventListener('mouseenter', () => {
+  //       card.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+  //     });
+  //   });
+  // });
+
+  // Theme Toggle Functionality
+  function toggleTheme() {
+    const html = document.documentElement;
+    const themeIcon = document.getElementById('theme-icon');
+
+    if (html.classList.contains('dark')) {
+      html.classList.remove('dark');
+      themeIcon.className = 'ri-sun-line';
+      localStorage.setItem('theme', 'light');
+    } else {
+      html.classList.add('dark');
+      themeIcon.className = 'ri-moon-line';
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+
+  // Initialize theme on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme');
+    const themeIcon = document.getElementById('theme-icon');
+
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeIcon.className = 'ri-moon-line';
+    }
+  });
+
+  // Scroll Animation Observer
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all scroll-fade elements
+  document.addEventListener('DOMContentLoaded', function() {
+    const scrollElements = document.querySelectorAll('.scroll-fade');
+    scrollElements.forEach(el => observer.observe(el));
+  });
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Add parallax effect to hero section
+  window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+      heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+  });
+
+  // Dynamic floating elements animation
+  function createFloatingElement() {
+    const emojis = ['🍃', '🌿', '🍅', '🌶️', '🥕', '🥬', '🍋', '🥑'];
+    const element = document.createElement('div');
+    element.className = 'fixed pointer-events-none text-2xl opacity-30 z-0';
+    element.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    element.style.left = Math.random() * 100 + 'vw';
+    element.style.top = '100vh';
+    element.style.animation = `float-up 8s linear forwards`;
+
+    document.body.appendChild(element);
+
+    setTimeout(() => {
+      element.remove();
+    }, 8000);
+  }
+
+  // Add floating elements periodically
+  setInterval(createFloatingElement, 3000);
+
+  // Add CSS for float-up animation
+  const style = document.createElement('style');
+  style.textContent = `
+  @keyframes float-up {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+`;
+  document.head.appendChild(style);
+
+
+  // Category Modal JavaScript - Add this to your existing script section
+
+  // Enhanced category data with complete information
+  const categoryData = {
+    'main-courses': {
+      title: 'Main Courses',
+      subtitle: 'Hearty and satisfying main dishes',
+      items: [
+        {
+          name: 'Grilled Salmon Supreme',
+          description: 'Fresh Atlantic salmon grilled to perfection with lemon herb butter, served with roasted vegetables and quinoa pilaf',
+          price: '$24.99',
+          image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Healthy', class: 'bg-green-100 text-green-700' },
+            { name: 'Protein Rich', class: 'bg-blue-100 text-blue-700' }
+          ]
+        },
+        {
+          name: 'Beef Tenderloin Medallions',
+          description: 'Premium beef tenderloin medallions with truffle sauce, garlic mashed potatoes, and seasonal vegetables',
+          price: '$32.99',
+          image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Premium', class: 'bg-yellow-100 text-yellow-700' },
+            { name: 'Chef Special', class: 'bg-purple-100 text-purple-700' }
+          ]
+        },
+        {
+          name: 'Chicken Parmesan Classic',
+          description: 'Crispy breaded chicken breast topped with marinara sauce and melted mozzarella, served with pasta',
+          price: '$19.99',
+          image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Popular', class: 'bg-red-100 text-red-700' },
+            { name: 'Italian', class: 'bg-green-100 text-green-700' }
+          ]
+        },
+        {
+          name: 'Lamb Rack with Mint Jus',
+          description: 'New Zealand lamb rack with rosemary crust, mint jus, and roasted root vegetables',
+          price: '$28.99',
+          image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Gourmet', class: 'bg-purple-100 text-purple-700' },
+            { name: 'Limited', class: 'bg-orange-100 text-orange-700' }
+          ]
+        },
+        {
+          name: 'Pan-Seared Duck Breast',
+          description: 'Succulent duck breast with cherry glaze, sweet potato puree, and sautéed spinach',
+          price: '$26.99',
+          image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Signature', class: 'bg-red-100 text-red-700' },
+            { name: 'Seasonal', class: 'bg-yellow-100 text-yellow-700' }
+          ]
+        },
+        {
+          name: 'Lobster Thermidor',
+          description: 'Fresh lobster tail in creamy cognac sauce, topped with cheese and herbs, served with rice pilaf',
+          price: '$38.99',
+          image: 'https://images.unsplash.com/photo-1559847844-d418898632c4?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Luxury', class: 'bg-yellow-100 text-yellow-700' },
+            { name: 'Seafood', class: 'bg-blue-100 text-blue-700' }
+          ]
+        },
+        {
+          name: 'Vegetarian Wellington',
+          description: 'Mushroom and vegetable wellington in puff pastry with red wine jus and seasonal vegetables',
+          price: '$22.99',
+          image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Vegetarian', class: 'bg-green-100 text-green-700' },
+            { name: 'Artisan', class: 'bg-purple-100 text-purple-700' }
+          ]
+        },
+        {
+          name: 'Seafood Paella',
+          description: 'Traditional Spanish paella with fresh seafood, saffron rice, and aromatic herbs',
+          price: '$29.99',
+          image: 'https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Spanish', class: 'bg-yellow-100 text-yellow-700' },
+            { name: 'Sharing', class: 'bg-orange-100 text-orange-700' }
+          ]
+        }
+      ]
+    },
+    'fresh-salads': {
+      title: 'Fresh Salads',
+      subtitle: 'Crisp and healthy salad options',
+      items: [
+        {
+          name: 'Mediterranean Quinoa Bowl',
+          description: 'Quinoa with mixed greens, cherry tomatoes, olives, feta cheese, and lemon herb dressing',
+          price: '$16.99',
+          image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Healthy', class: 'bg-green-100 text-green-700' },
+            { name: 'Protein', class: 'bg-blue-100 text-blue-700' }
+          ]
+        },
+        {
+          name: 'Grilled Chicken Caesar',
+          description: 'Crisp romaine lettuce with grilled chicken, parmesan, croutons, and house-made caesar dressing',
+          price: '$18.99',
+          image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Classic', class: 'bg-gray-100 text-gray-700' },
+            { name: 'Popular', class: 'bg-red-100 text-red-700' }
+          ]
+        },
+        {
+          name: 'Asian Fusion Salad',
+          description: 'Mixed greens with mandarin oranges, almonds, crispy wontons, and sesame ginger dressing',
+          price: '$17.99',
+          image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Fusion', class: 'bg-orange-100 text-orange-700' },
+            { name: 'Crunchy', class: 'bg-yellow-100 text-yellow-700' }
+          ]
+        },
+        {
+          name: 'Superfood Power Bowl',
+          description: 'Kale, spinach, avocado, blueberries, pumpkin seeds, and superfood dressing',
+          price: '$19.99',
+          image: 'https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Superfood', class: 'bg-purple-100 text-purple-700' },
+            { name: 'Antioxidant', class: 'bg-blue-100 text-blue-700' }
+          ]
+        },
+        {
+          name: 'Caprese Salad Deluxe',
+          description: 'Fresh mozzarella, heirloom tomatoes, basil, balsamic glaze, and extra virgin olive oil',
+          price: '$15.99',
+          image: 'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Italian', class: 'bg-green-100 text-green-700' },
+            { name: 'Fresh', class: 'bg-red-100 text-red-700' }
+          ]
+        },
+        {
+          name: 'Salmon Nicoise',
+          description: 'Grilled salmon with mixed greens, eggs, olives, tomatoes, and French vinaigrette',
+          price: '$22.99',
+          image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'French', class: 'bg-blue-100 text-blue-700' },
+            { name: 'Protein Rich', class: 'bg-green-100 text-green-700' }
+          ]
+        },
+        {
+          name: 'Harvest Autumn Salad',
+          description: 'Mixed greens with roasted butternut squash, cranberries, pecans, and maple vinaigrette',
+          price: '$16.99',
+          image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Seasonal', class: 'bg-orange-100 text-orange-700' },
+            { name: 'Sweet', class: 'bg-yellow-100 text-yellow-700' }
+          ]
+        },
+        {
+          name: 'Greek Village Salad',
+          description: 'Tomatoes, cucumbers, red onions, feta cheese, olives, and traditional Greek dressing',
+          price: '$14.99',
+          image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Traditional', class: 'bg-blue-100 text-blue-700' },
+            { name: 'Authentic', class: 'bg-white text-gray-700 border border-gray-300' }
+          ]
+        }
+      ]
+    },
+    'beverages': {
+      title: 'Beverages',
+      subtitle: 'Refreshing drinks and cocktails',
+      items: [
+        {
+          name: 'Tropical Sunset Mocktail',
+          description: 'Pineapple, mango, and passion fruit blend with coconut water and fresh mint',
+          price: '$12.99',
+          image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Non-alcoholic', class: 'bg-blue-100 text-blue-700' },
+            { name: 'Tropical', class: 'bg-yellow-100 text-yellow-700' }
+          ]
+        },
+        {
+          name: 'Craft Espresso Martini',
+          description: 'Premium vodka, fresh espresso, coffee liqueur, and vanilla simple syrup',
+          price: '$16.99',
+          image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Cocktail', class: 'bg-red-100 text-red-700' },
+            { name: 'Coffee', class: 'bg-yellow-100 text-yellow-700' }
+          ]
+        },
+        {
+          name: 'Cucumber Mint Cooler',
+          description: 'Fresh cucumber juice, mint leaves, lime, and sparkling water with a hint of elderflower',
+          price: '$10.99',
+          image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Refreshing', class: 'bg-green-100 text-green-700' },
+            { name: 'Low Cal', class: 'bg-blue-100 text-blue-700' }
+          ]
+        },
+        {
+          name: 'Berry Hibiscus Iced Tea',
+          description: 'Hibiscus tea infused with mixed berries, honey, and fresh lemon served over ice',
+          price: '$8.99',
+          image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Herbal', class: 'bg-purple-100 text-purple-700' },
+            { name: 'Antioxidant', class: 'bg-red-100 text-red-700' }
+          ]
+        },
+        {
+          name: 'Golden Turmeric Latte',
+          description: 'Creamy blend of turmeric, ginger, cinnamon, and coconut milk with a touch of honey',
+          price: '$9.99',
+          image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Wellness', class: 'bg-yellow-100 text-yellow-700' },
+            { name: 'Anti-inflammatory', class: 'bg-orange-100 text-orange-700' }
+          ]
+        },
+        {
+          name: 'Smoky Old Fashioned',
+          description: 'Premium bourbon with maple syrup, orange bitters, and a hint of applewood smoke',
+          price: '$18.99',
+          image: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Whiskey', class: 'bg-amber-100 text-amber-700' },
+            { name: 'Signature', class: 'bg-red-100 text-red-700' }
+          ]
+        },
+        {
+          name: 'Fresh Watermelon Agua Fresca',
+          description: 'Blended watermelon with lime juice, mint, and a splash of sparkling water',
+          price: '$7.99',
+          image: 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Summer', class: 'bg-pink-100 text-pink-700' },
+            { name: 'Hydrating', class: 'bg-blue-100 text-blue-700' }
+          ]
+        },
+        {
+          name: 'Lavender Honey Lemonade',
+          description: 'House-made lemonade infused with lavender and local honey, served with fresh herbs',
+          price: '$9.99',
+          image: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Floral', class: 'bg-purple-100 text-purple-700' },
+            { name: 'Calming', class: 'bg-blue-100 text-blue-700' }
+          ]
+        }
+      ]
+    },
+    'desserts': {
+      title: 'Desserts',
+      subtitle: 'Sweet treats to end your meal',
+      items: [
+        {
+          name: 'Chocolate Lava Cake',
+          description: 'Warm chocolate cake with molten center, served with vanilla ice cream and berry compote',
+          price: '$14.99',
+          image: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Warm', class: 'bg-red-100 text-red-700' },
+            { name: 'Popular', class: 'bg-yellow-100 text-yellow-700' }
+          ]
+        },
+        {
+          name: 'Tiramisu Classico',
+          description: 'Traditional Italian tiramisu with espresso-soaked ladyfingers and mascarpone cream',
+          price: '$12.99',
+          image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Italian', class: 'bg-green-100 text-green-700' },
+            { name: 'Coffee', class: 'bg-brown-100 text-brown-700' }
+          ]
+        },
+        {
+          name: 'Crème Brûlée Trilogy',
+          description: 'Three mini crème brûlées: vanilla bean, lavender honey, and dark chocolate',
+          price: '$16.99',
+          image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'French', class: 'bg-blue-100 text-blue-700' },
+            { name: 'Elegant', class: 'bg-purple-100 text-purple-700' }
+          ]
+        },
+        {
+          name: 'New York Cheesecake',
+          description: 'Classic New York style cheesecake with graham cracker crust and seasonal berry topping',
+          price: '$11.99',
+          image: 'https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Classic', class: 'bg-yellow-100 text-yellow-700' },
+            { name: 'Creamy', class: 'bg-white text-gray-700 border border-gray-300' }
+          ]
+        },
+        {
+          name: 'Seasonal Fruit Tart',
+          description: 'Buttery pastry shell filled with vanilla custard and topped with fresh seasonal fruits',
+          price: '$13.99',
+          image: 'https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Seasonal', class: 'bg-orange-100 text-orange-700' },
+            { name: 'Fresh', class: 'bg-green-100 text-green-700' }
+          ]
+        },
+        {
+          name: 'Chocolate Soufflé',
+          description: 'Light and airy chocolate soufflé served with crème anglaise and powdered sugar',
+          price: '$17.99',
+          image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Made to Order', class: 'bg-red-100 text-red-700' },
+            { name: 'Premium', class: 'bg-yellow-100 text-yellow-700' }
+          ]
+        },
+        {
+          name: 'Panna Cotta Duo',
+          description: 'Silky vanilla and strawberry panna cotta with fresh mint and balsamic reduction',
+          price: '$10.99',
+          image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Light', class: 'bg-pink-100 text-pink-700' },
+            { name: 'Gluten-free', class: 'bg-green-100 text-green-700' }
+          ]
+        },
+        {
+          name: 'Bananas Foster Flambé',
+          description: 'Caramelized bananas with rum, cinnamon, and brown sugar, served over vanilla ice cream',
+          price: '$15.99',
+          image: 'https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=300&h=300&fit=crop&crop=center',
+          tags: [
+            { name: 'Flambé', class: 'bg-orange-100 text-orange-700' },
+            { name: 'Interactive', class: 'bg-yellow-100 text-yellow-700' }
+          ]
+        }
+      ]
+    }
+  };
+
+  // Emoji animation system
+  const emojis = ['🍃', '🌿', '🍅', '🌶️', '🥕', '🥬', '🍋', '🥑'];
+  let emojiInterval;
+
+  // Function to create floating emojis
+  function createFloatingEmoji() {
+    const modal = document.getElementById('categoryModal');
+    if (!modal || !modal.classList.contains('active')) return;
+
+    const emoji = document.createElement('div');
+    emoji.className = 'modal-floating-emoji';
+    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    // Random positioning
+    emoji.style.left = Math.random() * 100 + '%';
+    emoji.style.animationDuration = (Math.random() * 10 + 15) + 's';
+    emoji.style.animationDelay = Math.random() * 2 + 's';
+
+    modal.appendChild(emoji);
+
+    // Remove emoji after animation
+    setTimeout(() => {
+      if (emoji.parentNode) {
+        emoji.parentNode.removeChild(emoji);
+      }
+    }, 20000);
+  }
+
+  // Start emoji animation
+  function startEmojiAnimation() {
+    stopEmojiAnimation(); // Clear any existing interval
+    emojiInterval = setInterval(createFloatingEmoji, 2000);
+  }
+
+  // Stop emoji animation
+  function stopEmojiAnimation() {
+    if (emojiInterval) {
+      clearInterval(emojiInterval);
+      emojiInterval = null;
+    }
+  }
+
+  // Function to open category modal
+  function openCategoryModal(categoryId) {
+    const modal = document.getElementById('categoryModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const modalBody = document.getElementById('modalBody');
+
+    const category = categoryData[categoryId];
+    if (!category) return;
+
+    // Set modal content
+    modalTitle.textContent = category.title;
+    modalSubtitle.textContent = category.subtitle;
+
+    // Clear existing content
+    modalBody.innerHTML = '';
+
+    // Add items to modal
+    category.items.forEach((item, index) => {
+      const itemElement = document.createElement('div');
+      itemElement.className = 'category-item';
+      itemElement.style.animationDelay = `${index * 0.1}s`;
+
+      const tagsHtml = item.tags.map(tag =>
+        `<span class="item-tag ${tag.class}">${tag.name}</span>`
+      ).join('');
+
+      itemElement.innerHTML = `
+      <div class="item-image">
+        <img src="${item.image}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300&h=300&fit=crop&crop=center'">
+      </div>
+      <div class="item-content">
+        <h3 class="item-title">${item.name}</h3>
+        <p class="item-description">${item.description}</p>
+        <div class="item-tags">${tagsHtml}</div>
+        <div class="item-price">${item.price}</div>
+        <button class="add-to-cart-btn" onclick="addToCart('${item.name}', '${item.price}')">
+          Add to Cart
+        </button>
+      </div>
+    `;
+
+      modalBody.appendChild(itemElement);
+    });
+
+    // Show modal with animation
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Start emoji animation
+    startEmojiAnimation();
+
+    // Add click outside to close
+    setTimeout(() => {
+      modal.addEventListener('click', handleModalOutsideClick);
+    }, 100);
+  }
+
+  // Function to close category modal
+  function closeCategoryModal() {
+    const modal = document.getElementById('categoryModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+
+    // Stop emoji animation
+    stopEmojiAnimation();
+
+    // Remove existing floating emojis
+    const existingEmojis = modal.querySelectorAll('.modal-floating-emoji');
+    existingEmojis.forEach(emoji => {
+      if (emoji.parentNode) {
+        emoji.parentNode.removeChild(emoji);
+      }
+    });
+
+    // Remove event listener
+    modal.removeEventListener('click', handleModalOutsideClick);
+  }
+
+  // Handle clicking outside modal
+  function handleModalOutsideClick(e) {
+    if (e.target === e.currentTarget) {
+      closeCategoryModal();
+    }
+  }
+
+  // Add to cart function (you can customize this)
+  function addToCart(itemName, itemPrice) {
+    // Add your cart logic here
+    console.log(`Added to cart: ${itemName} - ${itemPrice}`);
+
+    // Show success message (optional)
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = 'Added!';
+    button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.style.background = 'linear-gradient(135deg, #ff6b00, #ff8533)';
+    }, 1500);
+
+    // You can also trigger a cart update notification here
+    showCartNotification(itemName);
+  }
+
+  // Cart notification function (optional enhancement)
+  function showCartNotification(itemName) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 10000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+  `;
+    notification.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <span style="font-size: 1.2rem;">✅</span>
+      <span><strong>${itemName}</strong> added to cart!</span>
+    </div>
+  `;
+
+    document.body.appendChild(notification);
+
+    // Animate in
+    setTimeout(() => {
+      notification.style.transform = 'translateX(0)';
+    }, 100);
+
+    // Animate out and remove
+    setTimeout(() => {
+      notification.style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 300);
+    }, 3000);
+  }
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('categoryModal');
+      if (modal && modal.classList.contains('active')) {
+        closeCategoryModal();
+      }
+    }
+  });
+
+  // Initialize modal when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    // Ensure modal exists
+    const modal = document.getElementById('categoryModal');
+    if (!modal) {
+      console.error('Category modal not found. Make sure the modal HTML is added to your page.');
+    }
+  });
+
+</script>
+</body>
+</html>

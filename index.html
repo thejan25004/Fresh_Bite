@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Food Delivery - Premium Experience</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script src="js/styles.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+   <link rel="stylesheet" href="css/style.css" >
+</head>
+<body class="bg-white transition-colors duration-300">
+<!-- Theme Toggle Button -->
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <i class="ri-sun-line" id="theme-icon"></i>
+</button>
+
+<!-- Floating Background Elements -->
+<div class="fixed inset-0 pointer-events-none z-0">
+  <!-- Organic Shapes -->
+  <div class="organic-shape organic-1"></div>
+  <div class="organic-shape organic-2"></div>
+  <div class="organic-shape organic-3"></div>
+
+  <!-- Leaves -->
+  <div class="leaf" style="top: 10%; left: 5%;"></div>
+  <div class="leaf" style="top: 20%; right: 15%;"></div>
+  <div class="leaf" style="top: 60%; left: 10%;"></div>
+  <div class="leaf" style="bottom: 30%; right: 8%;"></div>
+
+  <!-- Food Particles -->
+  <div class="ingredient-particle tomato" style="top: 25%; left: 20%; animation-delay: 1s;"></div>
+  <div class="ingredient-particle herb" style="top: 45%; right: 25%; animation-delay: 2s;"></div>
+  <div class="ingredient-particle spice" style="bottom: 40%; left: 15%; animation-delay: 0.5s;"></div>
+  <div class="ingredient-particle tomato" style="top: 70%; right: 30%; animation-delay: 3s;"></div>
+  <div class="ingredient-particle herb" style="top: 15%; left: 70%; animation-delay: 1.5s;"></div>
+</div>
+
+<!-- Header -->
+<header class="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 transition-all duration-300">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="#" class="text-3xl font-['Pacifico'] text-primary animate-pulse-glow">FreshBite</a>
+    <nav class="hidden md:flex items-center space-x-8">
+      <a href="#" class="text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:scale-105">Home</a>
+      <a href="#featureProducts" class="text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:scale-105">Menu</a>
+      <a href="#about" class="text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:scale-105">About</a>
+      <a href="#contacts" class="text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:scale-105">Contact</a>
+    </nav>
+    <div class="flex items-center space-x-4">
+      <a href="#" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-all duration-300 hover:scale-110">
+        <i class="ri-search-line ri-lg"></i>
+      </a>
+      <a href="#" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-all duration-300 hover:scale-110">
+        <i class="ri-user-line ri-lg"></i>
+      </a>
+      <a href="#" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary relative transition-all duration-300 hover:scale-110">
+        <i class="ri-shopping-cart-line ri-lg"></i>
+        <span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full animate-bounce-gentle">3</span>
+      </a>
+      <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+        <i class="ri-menu-line ri-lg"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!--&lt;!&ndash; Hero Section &ndash;&gt;-->
+<!--<section class="hero-section relative">-->
+<!--  &lt;!&ndash; Splash Effects &ndash;&gt;-->
+<!--  <div class="splash-effect splash-1"></div>-->
+<!--  <div class="splash-effect splash-2"></div>-->
+<!--  <div class="splash-effect splash-3"></div>-->
+
+<!--  &lt;!&ndash; Floating Elements &ndash;&gt;-->
+<!--  <div class="floating-element">🍃</div>-->
+<!--  <div class="floating-element">🌿</div>-->
+<!--  <div class="floating-element">🍅</div>-->
+<!--  <div class="floating-element">🌶️</div>-->
+<!--  <div class="floating-element">🥕</div>-->
+
+<!--  <div class="container mx-auto px-4 py-24 relative z-10">-->
+<!--    <div class="max-w-2xl animate-fade-in-left">-->
+<!--      <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">-->
+<!--        DELIVERY OF-->
+<!--        <span class="text-primary animate-pulse-glow">FRESH HOT</span>-->
+<!--        DISHES-->
+<!--      </h1>-->
+<!--      <p class="text-xl md:text-2xl text-white mb-8 opacity-90">Enjoy restaurant-quality meals delivered to your doorstep with premium ingredients and chef's expertise</p>-->
+<!--      <div class="flex flex-col sm:flex-row gap-4">-->
+<!--        <a href="#" class="btn-primary inline-block bg-primary text-white px-10 py-4 font-semibold rounded-button text-lg hover:scale-105 transition-all duration-300">-->
+<!--          Order Now-->
+<!--          <i class="ri-arrow-right-line ml-2"></i>-->
+<!--        </a>-->
+<!--        <a href="#" class="inline-block bg-white/20 backdrop-blur-sm text-white px-10 py-4 font-semibold rounded-button text-lg hover:bg-white/30 transition-all duration-300">-->
+<!--          View Menu-->
+<!--          <i class="ri-restaurant-line ml-2"></i>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<!-- Hero Section -->
+<section class="hero-section relative">
+  <!-- Background Video -->
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="videos/Restaurant%20Promo%20Video%20⧸%20Historia%20Meze%20Grill%20⧸%20High%20Wycombe.mp4" type="video/mp4">
+    <source src="videos/Restaurant%20Promo%20Video%20⧸%20Historia%20Meze%20Grill%20⧸%20High%20Wycombe.mp4" type="video/webm">
+    <!-- Fallback for browsers that don't support video -->
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Splash Effects -->
+  <div class="splash-effect splash-1"></div>
+  <div class="splash-effect splash-2"></div>
+  <div class="splash-effect splash-3"></div>
+
+  <!-- Floating Elements -->
+  <div class="floating-element">🍃</div>
+  <div class="floating-element">🌿</div>
+  <div class="floating-element">🍅</div>
+  <div class="floating-element">🌶️</div>
+  <div class="floating-element">🥕</div>
+
+  <div class="container mx-auto px-4 py-24 relative z-10">
+    <div class="max-w-2xl animate-fade-in-left">
+      <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+        DELIVERY OF
+        <span class="text-primary animate-pulse-glow">FRESH HOT</span>
+        DISHES
+      </h1>
+      <p class="text-xl md:text-2xl text-white mb-8 opacity-90">Enjoy restaurant-quality meals delivered to your doorstep with premium ingredients and chef's expertise</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#featureProducts" class="btn-primary inline-block bg-primary text-white px-10 py-4 font-semibold rounded-button text-lg hover:scale-105 transition-all duration-300">
+          Order Now
+          <i class="ri-arrow-right-line ml-2"></i>
+        </a>
+        <a href="#categories" class="inline-block bg-white/20 backdrop-blur-sm text-white px-10 py-4 font-semibold rounded-button text-lg hover:bg-white/30 transition-all duration-300">
+          View Menu
+          <i class="ri-restaurant-line ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- About Section -->
+<section id="about" class="py-20 bg-white relative overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="organic-shape organic-1"></div>
+    <div class="organic-shape organic-2"></div>
+    <div class="ingredient-particle tomato" style="top: 15%; left: 8%; animation-delay: 0s;"></div>
+    <div class="ingredient-particle herb" style="top: 25%; right: 12%; animation-delay: 1s;"></div>
+    <div class="ingredient-particle spice" style="top: 70%; left: 10%; animation-delay: 2s;"></div>
+    <div class="leaf" style="top: 40%; right: 5%; animation-delay: 1.5s;"></div>
+    <div class="leaf" style="bottom: 30%; left: 5%; animation-delay: 0.5s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <!-- Hero About Header -->
+    <div class="mb-16 text-center scroll-fade">
+      <!--      <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent animate-pulse-glow">-->
+      <!--        About FreshBite-->
+      <!--      </h1>-->
+      <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Where culinary passion meets innovation to bring you the finest dining experience
+      </p>
+      <div class="w-32 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto mt-8 rounded-full"></div>
+    </div>
+
+    <!-- Story Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+      <div class="scroll-fade">
+        <div class="relative">
+          <img src="img/resturant/modern-coffee-shop-with-comfortable-chairs-elegant-decor-relaxing-ambiance-generated-by-artificial-intelligence.jpg"
+               alt="Our Kitchen"
+               class="w-full h-96 object-cover rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl"></div>
+          <div class="absolute bottom-6 left-6 text-white">
+            <div class="bg-primary px-4 py-2 rounded-full text-sm font-semibold animate-bounce-gentle">
+              🔥 Fresh Daily
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-center scroll-fade">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Our Story</h2>
+        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+          Founded in 2020 with a simple mission: to bring restaurant-quality meals directly to your doorstep.
+          What started as a small family kitchen has grown into a beloved culinary destination that serves thousands
+          of satisfied customers daily.
+        </p>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          Every dish tells a story of passion, quality, and dedication. Our chefs combine traditional cooking techniques
+          with modern innovation to create unforgettable flavors that keep you coming back for more.
+        </p>
+        <div class="flex items-center space-x-6">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary counter" data-count="10000">0</div>
+            <div class="text-sm text-gray-600 font-medium">Happy Customers</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary counter" data-count="500">0</div>
+            <div class="text-sm text-gray-600 font-medium">Daily Orders</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary counter" data-count="4">0</div>
+            <div class="text-sm text-gray-600 font-medium">Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Values Section -->
+    <div class="mb-20 scroll-fade">
+      <!--      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">Our Values</h2>-->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Value 1 -->
+        <div class="value-card bg-gradient-to-br from-red-50 to-red-100 rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+            <span class="text-3xl">❤️</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Passion</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Every dish is crafted with love and dedication. Our passion for food drives us to exceed expectations in every bite.
+          </p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="value-card bg-gradient-to-br from-green-50 to-green-100 rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+            <span class="text-3xl">🌱</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Quality</h3>
+          <p class="text-gray-600 leading-relaxed">
+            We source only the finest, freshest ingredients from trusted local suppliers to ensure premium quality in every meal.
+          </p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="value-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+            <span class="text-3xl">⚡</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Innovation</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Constantly evolving our menu and delivery process with cutting-edge technology to enhance your experience.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="mb-20 scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">Meet Our Team</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Team Member 1 -->
+        <div class="team-card bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="relative">
+            <img src="img/cheffs/shutterstock_1092064076.jpg"
+                 alt="Head Chef"
+                 class="w-full h-80 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <div class="bg-primary px-3 py-1 rounded-full text-sm font-semibold">
+                Head Chef
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-800">Chef Marco Rodriguez</h3>
+            <p class="text-gray-600 mb-4">15+ years of culinary excellence</p>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Michelin-trained chef specializing in fusion cuisine and innovative flavor combinations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-card bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="relative">
+            <img src="img/cheffs/happy-young-chef-posing-uniform_884296-444.jpg"
+                 alt="Sous Chef"
+                 class="w-full h-80 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <div class="bg-green-500 px-3 py-1 rounded-full text-sm font-semibold">
+                Sous Chef
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-800">Chef Sarah Kim</h3>
+            <p class="text-gray-600 mb-4">Pastry & Dessert Specialist</p>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Award-winning pastry chef known for creating Instagram-worthy desserts that taste as good as they look.
+            </p>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-card bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105">
+          <div class="relative">
+            <img src="img/cheffs/istockphoto-841494354-612x612.jpg"
+                 alt="Junior Chef"
+                 class="w-full h-80 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <div class="bg-purple-500 px-3 py-1 rounded-full text-sm font-semibold">
+                Operations
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-800">David Chen</h3>
+            <p class="text-gray-600 mb-4">Operations Manager</p>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Ensures every order meets our quality standards and reaches customers at the perfect time and temperature.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+      <!-- Mission -->
+      <div class="mission-card bg-gradient-to-br from-primary/10 to-orange-100 rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-primary to-orange-500 rounded-full flex items-center justify-center mb-6 animate-bounce-gentle">
+          <span class="text-2xl">🎯</span>
+        </div>
+        <h3 class="text-3xl font-bold mb-6 text-gray-800">Our Mission</h3>
+        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+          To revolutionize food delivery by providing exceptional culinary experiences that bring families together,
+          one meal at a time. We believe great food has the power to create lasting memories and strengthen bonds.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-center text-gray-600">
+            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+            Premium quality ingredients
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+            Lightning-fast delivery
+          </li>
+          <li class="flex items-center text-gray-600">
+            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+            Exceptional customer service
+          </li>
+        </ul>
+      </div>
+
+      <!-- Vision -->
+      <div class="vision-card bg-gradient-to-br from-blue-50 to-purple-100 rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mb-6 animate-bounce-gentle">
+          <span class="text-2xl">🚀</span>
+        </div>
+        <h3 class="text-3xl font-bold mb-6 text-gray-800">Our Vision</h3>
+        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+          To become the world's most beloved food delivery service, setting new standards for quality,
+          sustainability, and customer satisfaction while supporting local communities and suppliers.
+        </p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="text-center p-4 bg-white/50 rounded-2xl">
+            <div class="text-2xl font-bold text-blue-500">100+</div>
+            <div class="text-sm text-gray-600">Cities</div>
+          </div>
+          <div class="text-center p-4 bg-white/50 rounded-2xl">
+            <div class="text-2xl font-bold text-purple-500">24/7</div>
+            <div class="text-sm text-gray-600">Service</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Awards & Recognition -->
+    <div class="text-center scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-12 text-gray-800">Awards & Recognition</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="award-card p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">🏆</div>
+          <div class="text-sm font-semibold text-gray-800">Best Food Delivery</div>
+          <div class="text-xs text-gray-600">2023</div>
+        </div>
+        <div class="award-card p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">⭐</div>
+          <div class="text-sm font-semibold text-gray-800">Customer Choice</div>
+          <div class="text-xs text-gray-600">2023</div>
+        </div>
+        <div class="award-card p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">🌟</div>
+          <div class="text-sm font-semibold text-gray-800">Quality Excellence</div>
+          <div class="text-xs text-gray-600">2022</div>
+        </div>
+        <div class="award-card p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">🎖️</div>
+          <div class="text-sm font-semibold text-gray-800">Innovation Award</div>
+          <div class="text-xs text-gray-600">2022</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Featured Products -->
+<section id="featureProducts" class="py-20 bg-gray-50 relative overflow-hidden">
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="mb-16 text-center scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Featured Items</h2>
+      <p class="text-xl text-gray-600">Our most popular and loved dishes crafted with passion</p>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Featured Product 1 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="https://readdy.ai/api/search-image?query=Refreshing%20cocktail%20with%20fresh%20mint%2C%20strawberries%2C%20and%20ice%20in%20a%20tall%20glass%2C%20vibrant%20colors%2C%20clear%20liquid%20with%20red%20berries%2C%20professional%20beverage%20photography%20with%20condensation%20on%20glass%2C%20clean%20background&width=600&height=400&seq=2&orientation=landscape" alt="Cocktail" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Hot 🔥
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Berry Mojito</h3>
+            <span class="text-primary font-bold text-xl">$12.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">Refreshing cocktail with fresh berries, mint, and lime juice crafted by our mixology experts</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-green-100 text-green-700 text-sm rounded-full font-medium">Fresh</span>
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 text-sm rounded-full font-medium">Signature</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Featured Product 2 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="https://readdy.ai/api/search-image?query=Colorful%20fresh%20fruit%20cocktail%20with%20mixed%20berries%2C%20citrus%20slices%2C%20and%20mint%20garnish%20in%20elegant%20glassware%2C%20professional%20beverage%20photography%20with%20clean%20background%2C%20vibrant%20colors%2C%20refreshing%20summer%20drink&width=600&height=400&seq=3&orientation=landscape" alt="Fruit Cocktail" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Healthy 🌿
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Tropical Paradise</h3>
+            <span class="text-primary font-bold text-xl">$14.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">Exotic blend of tropical fruits with a hint of coconut and natural sweeteners</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">Non-alcoholic</span>
+            <span class="px-4 py-2 bg-purple-100 text-purple-700 text-sm rounded-full font-medium">Bestseller</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Featured Product 3 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="https://readdy.ai/api/search-image?query=Gourmet%20seafood%20pasta%20with%20shrimp%2C%20mussels%2C%20and%20fresh%20herbs%20in%20a%20creamy%20sauce%2C%20served%20in%20an%20elegant%20white%20bowl%2C%20professional%20food%20photography%20with%20soft%20natural%20lighting%2C%20restaurant%20quality%20presentation&width=600&height=400&seq=4&orientation=landscape" alt="Seafood Pasta" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Chef's Choice 👨‍🍳
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Seafood Delight</h3>
+            <span class="text-primary font-bold text-xl">$24.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">Premium seafood pasta with shrimp, mussels, and fresh herbs in our signature sauce</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-red-100 text-red-700 text-sm rounded-full font-medium">Chef's Special</span>
+            <span class="px-4 py-2 bg-yellow-100 text-yellow-700 text-sm rounded-full font-medium">Premium</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Featured Product 4 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="img/featureItems/italian-pasta-cooked-recipe-arrabiata_917664-105900.jpg" alt="Cocktail" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Hot 🔥
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Italian Pasta</h3>
+            <span class="text-primary font-bold text-xl">$14.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">A classic Italian dish made with durum wheat noodles, typically served with a variety of sauces like tomato, pesto, or creamy Alfredo, and often garnished with herbs and cheese.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-green-100 text-green-700 text-sm rounded-full font-medium">Fresh</span>
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 text-sm rounded-full font-medium">Signature</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Featured Product 5 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="img/featureItems/thumb-1920-1324465.png" alt="Cocktail" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Hot 🔥
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">lasagna ricotta cheese</h3>
+            <span class="text-primary font-bold text-xl">$52.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">A layered oven-baked pasta dish featuring sheets of pasta, rich tomato sauce, seasoned ground meat, and creamy ricotta cheese, topped with melted mozzarella.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-green-100 text-green-700 text-sm rounded-full font-medium">Fresh</span>
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 text-sm rounded-full font-medium">Signature</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Featured Product 6 -->
+      <div class="product-card bg-white rounded-2xl shadow-xl overflow-hidden scroll-fade">
+        <div class="h-72 overflow-hidden relative">
+          <img src="img/featureItems/red-lobster-seafood-fresh_988987-2687.png" alt="Cocktail" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Hot 🔥
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Sea Food With  Crayfish</h3>
+            <span class="text-primary font-bold text-xl">$102.99</span>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">A savory seafood medley starring crayfish, often combined with shrimp, mussels, or squid, cooked in a flavorful garlic butter or tomato-based sauce.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-4 py-2 bg-green-100 text-green-700 text-sm rounded-full font-medium">Fresh</span>
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 text-sm rounded-full font-medium">Signature</span>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Hot Dishes Section with Parallax -->
+<section class="py-20 parallax-bg relative" style="background-image: url('https://readdy.ai/api/search-image?query=Dark%20rustic%20wooden%20background%20with%20cooking%20ingredients%20and%20herbs%20scattered%20around%2C%20professional%20food%20photography%20background%2C%20warm%20lighting%2C%20culinary%20scene&width=1920&height=800&seq=13&orientation=landscape');">
+  <div class="absolute inset-0 bg-black/70"></div>
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="mb-16 text-center text-white scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Hot Dishes</h2>
+      <p class="text-xl opacity-90">Freshly prepared and delivered piping hot to your door</p>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Hot Dish 1 -->
+      <div class="product-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row scroll-fade">
+        <div class="md:w-1/2 h-64 md:h-auto overflow-hidden relative">
+          <img src="img/hotDishes/Grilled-Chicken-Leg-Quarters-FI-1.jpg" alt="Grilled Chicken" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-bounce-gentle">
+            🔥 Hot
+          </div>
+        </div>
+        <div class="md:w-1/2 p-8">
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Grilled Chicken Supreme</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">Perfectly grilled chicken breast with seasonal roasted vegetables and our signature herb blend</p>
+          <div class="flex justify-between items-center mb-6">
+            <span class="text-3xl font-bold text-primary">$18.99</span>
+            <div class="flex items-center space-x-1">
+              <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              <span class="text-sm text-gray-500">(4.8)</span>
+            </div>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Order Now - 25 min
+          </button>
+        </div>
+      </div>
+
+      <!-- Hot Dish 2 -->
+      <div class="product-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row-reverse scroll-fade">
+        <div class="md:w-1/2 h-64 md:h-auto overflow-hidden relative">
+          <img src="img/hotDishes/ai-generated-8944735.jpg" alt="Beef Steak" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
+            👑 Premium
+          </div>
+        </div>
+        <div class="md:w-1/2 p-8">
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Prime Beef Steak</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">Premium cut beef steak cooked to perfection with grilled asparagus and creamy mashed potatoes</p>
+          <br>
+          <div class="flex justify-between items-center mb-6">
+            <span class="text-3xl font-bold text-primary">$32.99</span>
+            <div class="flex items-center space-x-1">
+              <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              <span class="text-sm text-gray-500">(4.9)</span>
+            </div>
+          </div>
+          <button class="w-full btn-primary bg-primary text-white py-3 rounded-button font-semibold hover:scale-105 transition-all duration-300">
+            Order Now - 30 min
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Add this Modal HTML after your Categories Section -->
+<div id="categoryModal" class="modal-overlay">
+  <!-- Floating Emojis Background -->
+  <div class="modal-floating-emoji">🍃</div>
+  <div class="modal-floating-emoji">🌿</div>
+  <div class="modal-floating-emoji">🍅</div>
+  <div class="modal-floating-emoji">🌶️</div>
+  <div class="modal-floating-emoji">🥕</div>
+  <div class="modal-floating-emoji">🥬</div>
+  <div class="modal-floating-emoji">🍋</div>
+  <div class="modal-floating-emoji">🥑</div>
+
+  <div class="modal-container">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeCategoryModal()">
+        <i class="ri-close-line"></i>
+      </button>
+      <h2 id="modalTitle" class="text-3xl font-bold text-white">Main Courses</h2>
+      <p id="modalSubtitle" class="text-white/90 mt-2">Hearty and satisfying main dishes</p>
+    </div>
+
+    <div class="modal-body" id="modalBody">
+      <!-- Items will be populated here -->
+    </div>
+  </div>
+</div>
+
+<!-- Update your existing category cards to include onclick handlers -->
+<!-- Replace your existing Categories Section with this updated version -->
+<section id="categories" class="py-20 bg-white relative overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="ingredient-particle tomato" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+    <div class="ingredient-particle herb" style="top: 20%; right: 10%; animation-delay: 1s;"></div>
+    <div class="ingredient-particle spice" style="top: 70%; left: 15%; animation-delay: 2s;"></div>
+    <div class="ingredient-particle tomato" style="bottom: 20%; right: 20%; animation-delay: 1.5s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="mb-16 text-center scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Categories</h2>
+      <p class="text-xl text-gray-600">Explore our diverse menu crafted with love</p>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Category 1 -->
+      <div class="category-card bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 scroll-fade cursor-pointer" onclick="openCategoryModal('main-courses')">
+        <div class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce-gentle">
+          <span class="text-3xl">🍖</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Main Courses</h3>
+        <p class="text-gray-600 mb-6">Hearty and satisfying main dishes</p>
+        <span class="text-sm text-red-600 font-semibold">8+ items</span>
+      </div>
+
+      <!-- Category 2 -->
+      <div class="category-card bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 scroll-fade cursor-pointer" onclick="openCategoryModal('fresh-salads')">
+        <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce-gentle">
+          <span class="text-3xl">🥗</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Fresh Salads</h3>
+        <p class="text-gray-600 mb-6">Crisp and healthy salad options</p>
+        <span class="text-sm text-green-600 font-semibold">8+ items</span>
+      </div>
+
+      <!-- Category 3 -->
+      <div class="category-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 scroll-fade cursor-pointer" onclick="openCategoryModal('beverages')">
+        <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce-gentle">
+          <span class="text-3xl">🍹</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Beverages</h3>
+        <p class="text-gray-600 mb-6">Refreshing drinks and cocktails</p>
+        <span class="text-sm text-blue-600 font-semibold">8+ items</span>
+      </div>
+
+      <!-- Category 4 -->
+      <div class="category-card bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 scroll-fade cursor-pointer" onclick="openCategoryModal('desserts')">
+        <div class="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce-gentle">
+          <span class="text-3xl">🍰</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Desserts</h3>
+        <p class="text-gray-600 mb-6">Sweet treats to end your meal</p>
+        <span class="text-sm text-purple-600 font-semibold">8+ items</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-20 bg-gray-50 relative overflow-hidden">
+  <!-- Floating Food Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="leaf" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+    <div class="leaf" style="top: 30%; right: 15%; animation-delay: 2s;"></div>
+    <div class="leaf" style="bottom: 25%; left: 20%; animation-delay: 1s;"></div>
+    <div class="leaf" style="bottom: 40%; right: 10%; animation-delay: 3s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="mb-16 text-center scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Choose FreshBite?</h2>
+      <p class="text-xl text-gray-600">Experience the difference in every bite</p>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Feature 1 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-primary to-orange-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">⚡</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Lightning Fast</h3>
+        <p class="text-gray-600 leading-relaxed">Average delivery time of 25 minutes with real-time tracking</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">🌱</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Fresh Ingredients</h3>
+        <p class="text-gray-600 leading-relaxed">Sourced daily from local farms and premium suppliers</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">👨‍🍳</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Expert Chefs</h3>
+        <p class="text-gray-600 leading-relaxed">Prepared by professional chefs with years of experience</p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">🛡️</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Safe & Hygienic</h3>
+        <p class="text-gray-600 leading-relaxed">Highest food safety standards with contactless delivery</p>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">💝</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Special Offers</h3>
+        <p class="text-gray-600 leading-relaxed">Daily deals and loyalty rewards for our valued customers</p>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="feature-card bg-white rounded-2xl p-8 text-center shadow-lg scroll-fade">
+        <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+          <span class="text-2xl">⭐</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4">5-Star Service</h3>
+        <p class="text-gray-600 leading-relaxed">Exceptional customer service with 24/7 support</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20 bg-gradient-to-br from-primary/10 to-orange-100 relative overflow-hidden">
+  <!-- Floating Food Splash Effects -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="splash-effect" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="splash-effect" style="bottom: 30%; right: 15%; animation-delay: 2s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="mb-16 text-center scroll-fade">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">What Our Customers Say</h2>
+      <p class="text-xl text-gray-600">Real reviews from real food lovers</p>
+      <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Testimonial 1 -->
+      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 scroll-fade">
+        <div class="flex items-center mb-6">
+          <img src="img/testomonial/stylish-buisnessman-suit-tie-holding-his-hands-lock-leadership_396607-56424.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <h4 class="font-bold">Sarah Johnson</h4>
+            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="text-gray-600 leading-relaxed">"Absolutely amazing! The food arrived hot and fresh, and the flavors were incredible. Best delivery service in town!"</p>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 scroll-fade">
+        <div class="flex items-center mb-6">
+          <img src="img/testomonial/official-man-potrait_758367-17391.png" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <h4 class="font-bold">Mike Chen</h4>
+            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="text-gray-600 leading-relaxed">"The seafood pasta was restaurant quality! Quick delivery and excellent customer service. Highly recommended!"</p>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 scroll-fade">
+        <div class="flex items-center mb-6">
+          <img src="img/testomonial/girl-8734307_640.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <h4 class="font-bold">Emma Davis</h4>
+            <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="text-gray-600 leading-relaxed">"Love the healthy options and fresh ingredients. The app is easy to use and delivery is always on time!"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section id="contacts" class="py-20 relative overflow-hidden">
+  <!-- Video Background -->
+  <video
+    class="cta-video absolute top-0 left-0 w-full h-full object-cover z-0"
+    autoplay
+    muted
+    loop
+    playsinline>
+    <source src="videos/0601.mp4" type="video/mp4">
+    <source src="videos/0601.mp4" type="video/mp4">
+    <!-- Fallback for browsers that don't support video -->
+    <div class="w-full h-full bg-gradient-to-r from-primary to-orange-500"></div>
+  </video>
+
+  <!-- Video Overlay -->
+  <div class="absolute inset-0 bg-black/50 z-1"></div>
+
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 pointer-events-none z-2">
+    <div class="floating-element" style="top: 20%; left: 10%; font-size: 3rem;">🍽️</div>
+    <div class="floating-element" style="top: 60%; right: 15%; font-size: 2.5rem;">🥘</div>
+    <div class="floating-element" style="bottom: 30%; left: 20%; font-size: 2rem;">🍷</div>
+  </div>
+
+  <div class="container mx-auto px-4 text-center relative z-10">
+    <div class="max-w-3xl mx-auto scroll-fade">
+      <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">Ready to Order?</h2>
+      <p class="text-xl md:text-2xl text-white/90 mb-10 drop-shadow-md">Join thousands of satisfied customers and experience the FreshBite difference today!</p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="#" class="inline-block bg-white text-primary px-10 py-4 font-bold rounded-button text-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-2xl">
+          Download App
+          <i class="ri-smartphone-line ml-2"></i>
+        </a>
+        <a href="#" class="inline-block bg-transparent border-2 border-white text-white px-10 py-4 font-bold rounded-button text-lg hover:bg-white hover:text-primary hover:scale-105 transition-all duration-300 backdrop-blur-sm">
+          Order Online
+          <i class="ri-external-link-line ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-16 relative overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 pointer-events-none opacity-20">
+    <div class="ingredient-particle tomato" style="top: 20%; left: 5%;"></div>
+    <div class="ingredient-particle herb" style="top: 60%; right: 10%;"></div>
+    <div class="ingredient-particle spice" style="bottom: 30%; left: 15%;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Company Info -->
+      <div class="scroll-fade">
+        <a href="#" class="text-3xl font-['Pacifico'] text-primary mb-6 block">FreshBite</a>
+        <p class="text-gray-300 mb-6 leading-relaxed">Delivering fresh, delicious meals to your doorstep with love and care. Experience premium quality food service.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300">
+            <i class="ri-facebook-fill"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300">
+            <i class="ri-instagram-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="scroll-fade">
+        <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Home</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Menu</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">About Us</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Contact</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="scroll-fade">
+        <h3 class="text-xl font-bold mb-6">Categories</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Main Courses</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Appetizers</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Beverages</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Desserts</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Healthy Options</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="scroll-fade">
+        <h3 class="text-xl font-bold mb-6">Contact Us</h3>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <i class="ri-phone-line mr-3 text-primary"></i>
+            <span class="text-gray-300">+94 750 873 042</span>
+          </div>
+          <div class="flex items-center">
+            <i class="ri-mail-line mr-3 text-primary"></i>
+            <span class="text-gray-300">Cpes@freshbite.com</span>
+          </div>
+          <div class="flex items-center">
+            <i class="ri-map-pin-line mr-3 text-primary"></i>
+            <span class="text-gray-300">123 Food Street, Moratuwa Lane 01</span>
+          </div>
+          <div class="flex items-center">
+            <i class="ri-time-line mr-3 text-primary"></i>
+            <span class="text-gray-300">24/7 Delivery Service</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+      <p class="text-gray-400">&copy; 2024 FreshBite. All rights reserved. Made with ❤️ for food lovers.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

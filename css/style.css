@@ -1,0 +1,1052 @@
+/*!*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ *!*/
+
+/*!* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme *!*/
+/*!**/
+/* * What follows is the result of much research on cross-browser styling.*/
+/* * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,*/
+/* * Kroc Camen, and the H5BP dev community and team.*/
+/* *!*/
+
+/*!* ==========================================================================*/
+/*   Base styles: opinionated defaults*/
+/*   ========================================================================== *!*/
+
+/*html {*/
+/*  color: #222;*/
+/*  font-size: 1em;*/
+/*  line-height: 1.4;*/
+/*}*/
+
+/*!**/
+/* * Remove text-shadow in selection highlight:*/
+/* * https://twitter.com/miketaylr/status/12228805301*/
+/* **/
+/* * Customize the background color to match your design.*/
+/* *!*/
+
+/*::-moz-selection {*/
+/*  background: #b3d4fc;*/
+/*  text-shadow: none;*/
+/*}*/
+
+/*::selection {*/
+/*  background: #b3d4fc;*/
+/*  text-shadow: none;*/
+/*}*/
+
+/*!**/
+/* * A better looking default horizontal rule*/
+/* *!*/
+
+/*hr {*/
+/*  display: block;*/
+/*  height: 1px;*/
+/*  border: 0;*/
+/*  border-top: 1px solid #ccc;*/
+/*  margin: 1em 0;*/
+/*  padding: 0;*/
+/*}*/
+
+/*!**/
+/* * Remove the gap between audio, canvas, iframes,*/
+/* * images, videos and the bottom of their containers:*/
+/* * https://github.com/h5bp/html5-boilerplate/issues/440*/
+/* *!*/
+
+/*audio,*/
+/*canvas,*/
+/*iframe,*/
+/*img,*/
+/*svg,*/
+/*video {*/
+/*  vertical-align: middle;*/
+/*}*/
+
+/*!**/
+/* * Remove default fieldset styles.*/
+/* *!*/
+
+/*fieldset {*/
+/*  border: 0;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*}*/
+
+/*!**/
+/* * Allow only vertical resizing of textareas.*/
+/* *!*/
+
+/*textarea {*/
+/*  resize: vertical;*/
+/*}*/
+
+/*!* ==========================================================================*/
+/*   Author's custom styles*/
+/*   ========================================================================== *!*/
+
+/*!* ==========================================================================*/
+/*   Helper classes*/
+/*   ========================================================================== *!*/
+
+/*!**/
+/* * Hide visually and from screen readers*/
+/* *!*/
+
+/*.hidden,*/
+/*[hidden] {*/
+/*  display: none !important;*/
+/*}*/
+
+/*!**/
+/* * Hide only visually, but have it available for screen readers:*/
+/* * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility*/
+/* **/
+/* * 1. For long content, line feeds are not interpreted as spaces and small width*/
+/* *    causes content to wrap 1 word per line:*/
+/* *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe*/
+/* *!*/
+
+/*.visually-hidden {*/
+/*  border: 0;*/
+/*  clip: rect(0, 0, 0, 0);*/
+/*  height: 1px;*/
+/*  margin: -1px;*/
+/*  overflow: hidden;*/
+/*  padding: 0;*/
+/*  position: absolute;*/
+/*  white-space: nowrap;*/
+/*  width: 1px;*/
+/*  !* 1 *!*/
+/*}*/
+
+/*!**/
+/* * Extends the .visually-hidden class to allow the element*/
+/* * to be focusable when navigated to via the keyboard:*/
+/* * https://www.drupal.org/node/897638*/
+/* *!*/
+
+/*.visually-hidden.focusable:active,*/
+/*.visually-hidden.focusable:focus {*/
+/*  clip: auto;*/
+/*  height: auto;*/
+/*  margin: 0;*/
+/*  overflow: visible;*/
+/*  position: static;*/
+/*  white-space: inherit;*/
+/*  width: auto;*/
+/*}*/
+
+/*!**/
+/* * Hide visually and from screen readers, but maintain layout*/
+/* *!*/
+
+/*.invisible {*/
+/*  visibility: hidden;*/
+/*}*/
+
+/*!**/
+/* * Clearfix: contain floats*/
+/* **/
+/* * The use of `table` rather than `block` is only necessary if using*/
+/* * `::before` to contain the top-margins of child elements.*/
+/* *!*/
+
+/*.clearfix::before,*/
+/*.clearfix::after {*/
+/*  content: "";*/
+/*  display: table;*/
+/*}*/
+
+/*.clearfix::after {*/
+/*  clear: both;*/
+/*}*/
+
+/*!* ==========================================================================*/
+/*   EXAMPLE Media Queries for Responsive Design.*/
+/*   These examples override the primary ('mobile first') styles.*/
+/*   Modify as content requires.*/
+/*   ========================================================================== *!*/
+
+/*@media only screen and (min-width: 35em) {*/
+/*  !* Style adjustments for viewports that meet the condition *!*/
+/*}*/
+
+/*@media print,*/
+/*  (-webkit-min-device-pixel-ratio: 1.25),*/
+/*  (min-resolution: 1.25dppx),*/
+/*  (min-resolution: 120dpi) {*/
+/*  !* Style adjustments for high resolution devices *!*/
+/*}*/
+
+/*!* ==========================================================================*/
+/*   Print styles.*/
+/*   Inlined to avoid the additional HTTP request:*/
+/*   https://www.phpied.com/delay-loading-your-print-css/*/
+/*   ========================================================================== *!*/
+
+/*@media print {*/
+/*  *,*/
+/*  *::before,*/
+/*  *::after {*/
+/*    background: #fff !important;*/
+/*    color: #000 !important;*/
+/*    !* Black prints faster *!*/
+/*    box-shadow: none !important;*/
+/*    text-shadow: none !important;*/
+/*  }*/
+
+/*  a,*/
+/*  a:visited {*/
+/*    text-decoration: underline;*/
+/*  }*/
+
+/*  a[href]::after {*/
+/*    content: " (" attr(href) ")";*/
+/*  }*/
+
+/*  abbr[title]::after {*/
+/*    content: " (" attr(title) ")";*/
+/*  }*/
+
+/*  !**/
+/*   * Don't show links that are fragment identifiers,*/
+/*   * or use the `javascript:` pseudo protocol*/
+/*   *!*/
+/*  a[href^="#"]::after,*/
+/*  a[href^="javascript:"]::after {*/
+/*    content: "";*/
+/*  }*/
+
+/*  pre {*/
+/*    white-space: pre-wrap !important;*/
+/*  }*/
+
+/*  pre,*/
+/*  blockquote {*/
+/*    border: 1px solid #999;*/
+/*    page-break-inside: avoid;*/
+/*  }*/
+
+/*  tr,*/
+/*  img {*/
+/*    page-break-inside: avoid;*/
+/*  }*/
+
+/*  p,*/
+/*  h2,*/
+/*  h3 {*/
+/*    orphans: 3;*/
+/*    widows: 3;*/
+/*  }*/
+
+/*  h2,*/
+/*  h3 {*/
+/*    page-break-after: avoid;*/
+/*  }*/
+/*}*/
+
+:where([class^="ri-"])::before { content: "\f3c2"; }
+
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+.dark body {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.dark .bg-white {
+  background-color: #2d2d2d !important;
+}
+
+.dark .text-gray-800 {
+  color: #e0e0e0 !important;
+}
+
+.dark .text-gray-600 {
+  color: #b0b0b0 !important;
+}
+
+.dark .text-gray-500 {
+  color: #909090 !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #262626 !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: #404040 !important;
+}
+
+.dark .border-gray-300 {
+  border-color: #555555 !important;
+}
+
+.dark .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  background: linear-gradient(135deg, #ff6b00, #ff8533);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 15px 35px rgba(255, 107, 0, 0.4);
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes bounceGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 20px rgba(255, 107, 0, 0.3); }
+  to { box-shadow: 0 0 40px rgba(255, 107, 0, 0.6); }
+}
+
+/*!* Hero Section with Curved Bottom *!*/
+/*.hero-section {*/
+/*  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(255,107,0,0.2) 100%),*/
+/*  url('img/pexels-ella-olsson-572949-1640777.jpg');*/
+/*!*url('img/pexels-ella-olsson-572949-1640777.jpg');*!*/
+/*  background-size: cover;*/
+/*  background-position: center;*/
+/*  position: relative;*/
+/*  min-height: 100vh;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*}*/
+
+.hero-section {
+  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(255,107,0,0.2) 100%);
+  /* Remove the background image properties */
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Add this to contain the video */
+}
+
+/* Add video background styles */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Place video behind content */
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: white;
+  clip-path: ellipse(100% 100% at 50% 100%);
+}
+
+.dark .hero-section::after {
+  background: #1a1a1a;
+}
+
+/* Floating Elements */
+.floating-element {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.7;
+}
+.floating-element:nth-child(1) { top: 10%; left: 5%; animation: float 6s ease-in-out infinite; }
+.floating-element:nth-child(2) { top: 20%; right: 10%; animation: float-delayed 6s ease-in-out infinite; }
+.floating-element:nth-child(3) { top: 60%; left: 8%; animation: float-slow 8s ease-in-out infinite; }
+.floating-element:nth-child(4) { top: 70%; right: 5%; animation: float 7s ease-in-out infinite; }
+.floating-element:nth-child(5) { top: 40%; right: 20%; animation: float-delayed 5s ease-in-out infinite; }
+
+/* Food Splash Effects */
+.splash-effect {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,107,0,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse-glow 3s ease-in-out infinite alternate;
+}
+
+.splash-1 { top: 15%; left: 15%; animation-delay: 0s; }
+.splash-2 { top: 50%; right: 20%; animation-delay: 1s; }
+.splash-3 { bottom: 20%; left: 25%; animation-delay: 2s; }
+
+/* Enhanced Card Hover Effects */
+.product-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+  z-index: 1;
+}
+
+.product-card:hover::before {
+  left: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.dark .product-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(255, 107, 0, 0.3);
+}
+
+/* Category Cards with Advanced Effects */
+.category-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.3);
+}
+
+/* Feature Cards with Glow Effect */
+.feature-card {
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px -8px rgba(255, 107, 0, 0.2);
+}
+
+.dark .feature-card:hover {
+  box-shadow: 0 20px 40px -8px rgba(255, 107, 0, 0.4);
+}
+
+/* Button Enhancements */
+.btn-primary {
+  background: linear-gradient(135deg, #ff6b00, #ff8533);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(255, 107, 0, 0.4);
+}
+
+/* Organic Shapes */
+.organic-shape {
+  position: absolute;
+  background: linear-gradient(45deg, rgba(255,107,0,0.1), rgba(255,133,51,0.1));
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: float-slow 10s ease-in-out infinite;
+}
+
+.organic-1 { width: 300px; height: 300px; top: 10%; left: -150px; }
+.organic-2 { width: 400px; height: 400px; top: 50%; right: -200px; }
+.organic-3 { width: 250px; height: 250px; bottom: 20%; left: 10%; }
+
+/* Scroll Animations */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax Background */
+.parallax-bg {
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Leaf Elements */
+.leaf {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, #22c55e, #16a34a);
+  border-radius: 0 100% 0 100%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.leaf:nth-child(odd) {
+  animation-delay: -2s;
+  transform: rotate(45deg);
+}
+
+.leaf:nth-child(even) {
+  animation-delay: -4s;
+  transform: rotate(-45deg);
+}
+
+/* Food Ingredient Particles */
+.ingredient-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: bounce-gentle 4s ease-in-out infinite;
+}
+
+.tomato { background: #ef4444; width: 20px; height: 20px; }
+.herb { background: #22c55e; width: 15px; height: 15px; }
+.spice { background: #f59e0b; width: 12px; height: 12px; }
+
+
+/*-------------------------------------*/
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background: rgba(0, 0, 0, 0.8);*/
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 98%;
+  height: 80%;
+  max-width: 2000px;
+  max-height: 110vh;
+  /*background: white;*/
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+.modal-overlay.active .modal-container {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.dark .modal-container {
+  background: #2d2d2d;
+  color: #e0e0e0;
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #ff6b00, #ff8533);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+}
+
+.modal-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="0%" r="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><ellipse cx="50" cy="0" rx="50" ry="20" fill="url(%23a)"/></svg>') repeat-x;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+
+  max-height: 60vh;
+  overflow-y: auto;
+
+  /* Hide scrollbar - Firefox */
+  scrollbar-width: none;
+
+  /* Hide scrollbar - WebKit (Chrome, Safari, Edge) */
+}
+
+.modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff6b00, #ff8533);
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #e85d00, #ff6b00);
+}
+
+.category-item {
+  display: flex;
+  padding: 2rem;
+  /*border-bottom: 1px solid #e5e7eb;*/
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+
+  border-radius: 25px; /* 🎯 This creates the curve */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  /*transition: transform 0.3s ease;*/
+}
+
+.category-item:hover {
+  /*background: linear-gradient(90deg, rgba(255, 107, 0, 0.05), rgba(255, 133, 51, 0.05));*/
+  background: linear-gradient(
+    90deg,
+    rgba(255, 183, 77, 0.3),
+    rgba(255, 160, 67, 0.3)
+  );
+  transform: translateX(10px);
+}
+
+.dark .category-item {
+  border-bottom-color: #404040;
+}
+
+.dark .category-item:hover {
+  background: linear-gradient(90deg, rgba(255, 107, 0, 0.1), rgba(218, 74, 20, 0.1));
+}
+
+.category-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(135deg, #ff6b00, #ff8533);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.category-item:hover::before {
+  transform: scaleY(1);
+}
+
+.item-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-right: 2rem;
+  position: relative;
+  flex-shrink: 0;
+
+}
+
+.item-image img {
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.category-item:hover .item-image img {
+  transform: scale(1.1);
+}
+
+.item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.dark .item-title {
+  color: #e0e0e0;
+}
+
+.item-description {
+  color: #6b7280;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.dark .item-description {
+  color: #b0b0b0;
+}
+
+.item-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ff6b00;
+  margin-bottom: 1rem;
+}
+
+.item-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.item-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #ff6b00, #ff8533);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  align-self: flex-start;
+}
+
+.add-to-cart-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.add-to-cart-btn:hover::before {
+  left: 100%;
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
+}
+
+/* Floating Background Emojis for Modal */
+.modal-floating-emoji {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+  animation: modal-float 15s linear infinite;
+}
+
+@keyframes modal-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Staggered animation delays */
+.modal-floating-emoji:nth-child(1) { animation-delay: 0s; left: 10%; }
+.modal-floating-emoji:nth-child(2) { animation-delay: 2s; left: 20%; }
+.modal-floating-emoji:nth-child(3) { animation-delay: 4s; left: 30%; }
+.modal-floating-emoji:nth-child(4) { animation-delay: 6s; left: 40%; }
+.modal-floating-emoji:nth-child(5) { animation-delay: 8s; left: 50%; }
+.modal-floating-emoji:nth-child(6) { animation-delay: 10s; left: 60%; }
+.modal-floating-emoji:nth-child(7) { animation-delay: 12s; left: 70%; }
+.modal-floating-emoji:nth-child(8) { animation-delay: 14s; left: 80%; }
+
+/* Item entrance animation */
+.category-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.category-item:nth-child(1) { animation-delay: 0.1s; }
+.category-item:nth-child(2) { animation-delay: 0.2s; }
+.category-item:nth-child(3) { animation-delay: 0.3s; }
+.category-item:nth-child(4) { animation-delay: 0.4s; }
+.category-item:nth-child(5) { animation-delay: 0.5s; }
+.category-item:nth-child(6) { animation-delay: 0.6s; }
+.category-item:nth-child(7) { animation-delay: 0.7s; }
+.category-item:nth-child(8) { animation-delay: 0.8s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-container {
+    width: 98%;
+    max-height: 95vh;
+  }
+
+  .category-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .item-image {
+    width: 100%;
+    height: 200px;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .modal-header {
+    padding: 1.5rem;
+  }
+}
+
+
+.cta-video {
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Enhanced text visibility over video */
+.drop-shadow-lg {
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+.drop-shadow-md {
+  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+}
+
+/* Backdrop blur for better button visibility */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+
+.value-card:hover {
+  transform: scale(1.05) rotate(1deg);
+}
+
+.team-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.mission-card:hover, .vision-card:hover {
+  transform: translateY(-5px);
+}
+
+.award-card:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Counter Animation */
+.counter {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom hover effects */
+.team-card img {
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Floating animation for awards */
+.award-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+.award-card:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.award-card:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.award-card:nth-child(4) {
+  animation-delay: 3s;
+}
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
